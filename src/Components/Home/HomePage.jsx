@@ -5,7 +5,7 @@ import './HomePage.css';
 class HomePage extends Component {
   render(){
     return(
-      <div className="Home">Our BABEL app is working!
+      <div className="Home">Our BABEL app is working fine!
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <ul className="navbar-nav mr-auto">
             <li><Link to={'/'} className="nav-link"> Home </Link></li>
