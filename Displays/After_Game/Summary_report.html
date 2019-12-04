@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Summary_report</title>
+    </head>
+    <body>
+        <!--choix date session liste déroulante meilleur choix ? -->
+        <div>
+            
+            <input type="select">
+                <libellé>Choisir la date de la scéance </libellé>
+                <option id=" " valeur=" "><p> </p></option>
+                <option id=" " valeur=" "><p> </p></option>
+                <option id=" " valeur=" "><p> </p></option>
+                <option id=" " valeur=" "><p> </p></option>
+             </input>
+        </div>
+        <!--choix catégories-->
+        <div>
+            <p>Veuillez Choisir la priorité des catégories</p> 
+            <table>
+                <thead> 
+                    <tr>
+                        <!-- Quand on click sur une des catégories on la définit en première, deuxième clique -> deuxième catégorie-->
+                        <!-- le choix du bouton montrera les images/thémes sous liste-->
+                        <td><button id="Nutrition_button" type="button">Nutrition</button></td>
+                        <td><button id="Personnal_care_button" type="button">Soins personnels</button></td>
+                        <td><button id="Communication_button" type="button">Communication</button></td>
+                        <td><button id="Habitation_button" type="button">Habitation</button></td>
+                        <td><button id="Displacement_button" type="button">Déplacements</button></td>
+                        <td><button id="Responsability_button" type="button">Responsabilités</button></td>
+                        <td><button id="Hobby_button" type="button">Loisirs</button></td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <!-- résumé-->
+        <div>
+        <table>
+            <thead>
+                 <tr>
+                     <!-- Nom a revoir ?? peut être placé des images-->
+                     <td>Thème/Image</td>
+                     <td>j'aime</td>
+                     <td>j'aime pas</td>
+                     <td>Aide</td>
+                     <td>Pas aide</td>
+                     <td>Content</td>
+                     <td>Pas content</td>
+                 </tr>
+            </thead>
+            <tbody>
+                <!-- voir comment faire une boucle en react comme dans php -->
+                <tr> 
+                    <!-- Récupération de l'image/thème-->
+                    <td><img src="Pictures/...." alt=""></td> 
+                    <!-- croix ou v en fonction -->
+                    <td><p><!--recup info --></p></td> 
+                    <td><p><!--recup info --></p></td>
+                    <td><p><!--recup info --></p></td>
+                    <td><p><!--recup info --></p></td>
+                    <td><p><!--recup info --></p></td>
+                    <td><p><!--recup info --></p></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <p>Commentaires</p>
+        <input id="comment" type="textarea">
+        <button id="leave_comment_buton" type="button">laisser un commentaire</button>
+    <div>
+    </body>
+</html>
