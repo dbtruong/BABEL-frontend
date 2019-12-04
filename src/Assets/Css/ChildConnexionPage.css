@@ -1,0 +1,25 @@
+.Logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    height: 40%;
+  }
+.button {
+    background-color: #FFA700!important;
+    border-color: rgb(209, 101, 0)!important;
+    font-size: 30px!important;
+    height: 20%;
+    width: 20%;
+}
+.input {
+  align-content: center;
+  width: 200px;
+  height: 50px; 
+  
+  
+}
+.container {
+    text-align: center;
+    font-family: 'Inkfree';
+  }

@@ -11,12 +11,12 @@
     height: 75%;
 }
 
-label {
+.label {
     font-weight: bold;
     font-size: xx-large;
 }
 
-button {
+.button {
     background-color: #FFA700!important;
     border-color: #FFA700!important;
     font-size: 30px!important;

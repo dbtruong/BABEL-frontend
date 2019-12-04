@@ -1,3 +1,11 @@
+.Logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  height: 40%;
+}
+
 .Home {
   border: 2px solid black;
   text-align: center;
@@ -6,3 +14,31 @@
   margin: 20px;
   padding: 20px;
 }
+.container {
+  text-align: center;
+  font-family: 'Inkfree';
+}
+.child_button {
+  
+  background-color: rgb(105, 207, 3)!important;
+  border-color: rgb(34, 163, 34)!important;
+  font-size: 30px!important;
+  height: 30%;
+  width: 30%;
+}
+.pro_button {
+  background-color:#FFA500!important;
+  border-color: rgb(255, 140, 0)!important;
+  font-size: 30px!important;
+  height: 30%;
+  width: 30%;
+}
+.parent_button {
+  color: rgb(5, 5, 14)!important;
+  background-color: rgb(125, 189, 253)!important;
+  border-color: #0000FF!important;
+  font-size: 30px!important;
+  height: 30%;
+  width: 30%;
+}
+

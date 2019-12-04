@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
-import Logo from '../../Assets/Images/logo.png'
-import '../../Assets/Css/LoginPage.css';
+import Logo from '../../../Assets/Images/logo.png'
+import '../../../Assets/Css/LoginPage.css';
 
 class LoginPage extends Component{
     render(){
