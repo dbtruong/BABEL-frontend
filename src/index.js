@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Assets/Fonts/Inkfree.ttf'
 
 import HomePage from './Components/Home/HomePage.jsx';
+import LoginPage from './Components/Before_game/LoginPage.jsx';
 var hist = createBrowserHistory();
 
 
