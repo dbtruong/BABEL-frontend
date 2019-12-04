@@ -1,6 +1,11 @@
+html, #root{
+    background-color: #ECECFF;
+}
 .container {
+    height: 100%;
     text-align: center;
     font-family: 'Inkfree';
+    background-color: #ECECFF;
 }
 
 .imgLogo {
