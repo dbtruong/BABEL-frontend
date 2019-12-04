@@ -9,8 +9,8 @@ class HomePage extends Component {
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <ul className="navbar-nav mr-auto">
             <li><Link to={'/'} className="nav-link"> Home </Link></li>
+            <li><Link to={'/login'} className="nav-link">Login</Link></li>
             <li><Link to={'/newpage'} className="nav-link">Nouvelle page</Link></li>
-            <li><Link to={'/about'} className="nav-link">About</Link></li>
           </ul>
           </nav>
       </div>
