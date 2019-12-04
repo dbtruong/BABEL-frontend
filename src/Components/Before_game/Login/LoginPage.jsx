@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
-import LoginAPI from '../../API/LoginAPI.js'
+import LoginAPI from '../../../API/LoginAPI.js'
 
 import Logo from '../../../Assets/Images/logo.png'
 import '../../../Assets/Css/LoginPage.css';

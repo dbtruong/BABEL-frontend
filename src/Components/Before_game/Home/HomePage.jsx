@@ -15,11 +15,11 @@ class HomePage extends Component {
           </div>
           <br/>
           <div>
-            <button className="pro_button"><Link to={'/before_game/'} className="nav-link">Professionel</Link></button>
+            <button className="pro_button"><Link to={'/login'} className="nav-link">Professionel</Link></button>
           </div> 
           <br/>
           <div>
-            <button className="parent_button"><Link to={'/before_game/'} className="nav-link">Parent</Link></button>
+            <button className="parent_button"><Link to={'/login'} className="nav-link">Parent</Link></button>
           </div>
       
       </nav>    
