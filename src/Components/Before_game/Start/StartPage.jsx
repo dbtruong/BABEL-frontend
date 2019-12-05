@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import '../../../Assets/Css/startPage.css';
 
-import Logo from '../../../Assets/Images/logo.png'
 import { Link } from 'react-router-dom';
 
 class StartPage extends Component {
@@ -10,7 +9,7 @@ class StartPage extends Component {
     return (
 
         <nav className="container2">
-            <Link to={'/'}><img src={Logo} alt="logo esope" className="Logo"/></Link><br/>
+            <Link to={'/'}><img src="Images/logo.png" alt="logo esope" className="Logo"/></Link><br/>
             <Button className="roundButton">C'est parti !!</Button>
         </nav>
     );

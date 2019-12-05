@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import LoginAPI from '../../../API/LoginAPI.js'
 
-import Logo from '../../../Assets/Images/logo.png'
 import '../../../Assets/Css/LoginPage.css';
 
 class LoginPage extends Component{
@@ -30,7 +29,7 @@ class LoginPage extends Component{
     render(){
         return(
             <div className="container">
-                <Link to={'/'}><img src={Logo} alt="logo esope" className="imgLogo"/></Link><br/>
+                <Link to={'/'}><img src="Images/logo.png" alt="logo esope" className="imgLogo"/></Link><br/>
                 <label>Pseudo :</label><br/>
                 <input 
                     type="text"
