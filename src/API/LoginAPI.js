@@ -1,7 +1,7 @@
 //Login endpoint
 
 import API from "./API.js"
-import axios from 'axios'
+//import axios from 'axios'
 
 class LoginAPI extends API{
 

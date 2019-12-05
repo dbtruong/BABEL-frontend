@@ -1,7 +1,7 @@
 //ChildSummary endpoint
 
 import API from "./API.js"
-import axios from 'axios'
+//import axios from 'axios'
 
 class ChildSummaryAPI extends API{
 
@@ -15,9 +15,9 @@ class ChildSummaryAPI extends API{
         // console.log(response.data);
         // return response.data;
         let images = [
-            { name : "img1", like : true, help : true, happy : false},
-            { name : "img2", like : true, help : true, happy : false},
-            { name : "img3", like : true, help : true, happy : false}
+            { name : "bus", like : true, help : true, happy : false},
+            { name : "marcher", like : true, help : false, happy : false},
+            { name : "velo", like : false, help : true, happy : false}
         ]
         return images;
     }
