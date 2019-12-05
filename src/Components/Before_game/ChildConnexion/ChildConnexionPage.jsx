@@ -14,7 +14,7 @@ class ChildConnexionPage extends Component {
                 <input type="text" placeholder="Entrez l'id de l'enfant" className="input"></input><br/>
           </div>
           <br/>
-          <Link to={'/start'}><Button className="button">Connexion</Button></Link>
+          <Link to={'/childSummary'}><Button className="button">Connexion</Button></Link>
         </nav>
     );
   }

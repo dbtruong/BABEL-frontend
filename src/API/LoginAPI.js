@@ -10,6 +10,7 @@ class LoginAPI extends API{
         this.endpoint = this.url + "/login";
     }
 
+    //test with await if doesn't work
     checkLogin(login, password){
         // Uncomment to link with backend
         // axios.post(
