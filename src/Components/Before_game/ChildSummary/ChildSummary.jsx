@@ -13,6 +13,7 @@ class ChildSummary extends Component{
         this.api = new ChildSummaryAPI();
     }
 
+    //Il faudra gérer les différentes catégories en fonction de l'image
     createSummary(){
         //Can't seem to use setState somehow
         //this.setState({listImages : this.api.getChildSummary()});
