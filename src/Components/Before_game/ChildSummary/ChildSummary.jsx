@@ -35,7 +35,7 @@ class ChildSummary extends Component{
             if (list[i].like){
                 children.push(<img src="/Images/like.png" alt="j'aime"/>)
             } else {
-                children.push(<img src="/Images/unlike.png" alt="je n'aime pas"/>)
+                children.push(<img src="/Images/dislike.png" alt="je n'aime pas"/>)
             }
             if (list[i].help){
                 children.push(<img src="/Images/help.png" alt="j'ai besoin d'aide"/>)

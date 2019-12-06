@@ -12,10 +12,9 @@ import ChildSummary from './Components/Before_game/ChildSummary/ChildSummary.jsx
 import ChildConnexionPage from './Components/Before_game/ChildConnexion/ChildConnexionPage.jsx';
 import StartPage from './Components/Before_game/Start/StartPage.jsx';
 import CategoryChoicePage from './Components/In_game/CategoryChoice/CategoryChoicePage.jsx'; 
-import ChoicePage from './Components/ChoicePage/ChoicePage.jsx';
 import SortingTopicsPage from './Components/In_game/SortingTopicsPage/SortingTopicsPage.jsx'; 
 import ProfChildChoicePage from './Components/Before_game/ProfChildChoice/ProfChildChoicePage.jsx';
-
+import ChoicePage from './Components/In_game/ChoicePage/ChoicePage.jsx';
 
 var hist = createBrowserHistory();
 

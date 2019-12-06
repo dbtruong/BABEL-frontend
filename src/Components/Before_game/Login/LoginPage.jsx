@@ -23,7 +23,8 @@ class LoginPage extends Component{
         //     .then(res => {
         //         console.log(res.data);
         //     })
-        console.log(this.api.checkLogin(this.state.login, this.state.password));
+        //console.log(this.api.checkLogin(this.state.login, this.state.password));
+        console.log(this.api.getTest());
     }
 
     render(){
