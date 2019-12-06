@@ -13,6 +13,7 @@ import ChildConnexionPage from './Components/Before_game/ChildConnexion/ChildCon
 import StartPage from './Components/Before_game/Start/StartPage.jsx';
 import CategoryChoicePage from './Components/In_game/CategoryChoice/CategoryChoicePage.jsx'; 
 import ChoicePage from './Components/ChoicePage/ChoicePage.jsx';
+import ProfChildChoicePage from './Components/Before_game/ProfChildChoice/ProfChildChoicePage.jsx';
 
 var hist = createBrowserHistory();
 
@@ -26,5 +27,6 @@ ReactDOM.render(<Router history={hist}>
       <Route path="/start" component={StartPage}/>
       <Route path="/categoryChoice" component={CategoryChoicePage}/>
       <Route path="/choice" component={ChoicePage} />
+      <Route path="/profChildChoice" component={ProfChildChoicePage}/>
     </Switch>
   </Router>, document.getElementById('root'));
