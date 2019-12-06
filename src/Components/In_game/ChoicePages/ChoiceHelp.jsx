@@ -4,7 +4,7 @@ import '../../../Assets/Css/ChoicePage.css';
 import choiceAPI from '../../../API/choiceAPI.js'
 import Button from 'react-bootstrap/Button'
 
-class ChoicePage extends Component {
+class ChoiceHelp extends Component {
 	
 	constructor(){
 		super();
@@ -46,28 +46,27 @@ class ChoicePage extends Component {
 		return(
 		<div className="page">
 			<div className="mb-5">
-				<h1 className="title">J'aime ou je n'aime pas...</h1>
+				<h1 className="title">J'ai besoin d'aide ou je n'ai pas besoin d'aide pour...</h1>
 				<p>{this.state.currentDesc}</p>
 				<img src={this.state.currentImg} alt={this.state.currentDesc} className="imgHabit"/>
 			</div>
 			
 			<div className="row d-flex justify-content-center divHeigt">
 				
-				<Button name="like" className="like" onClick={this.handleClick}>	
-					<input name="like" className="imgButton" type="image" src="Images/like.png" alt="j'aime"/>
+				<Button name="nohelp" className="like" onClick={this.handleClick}>	
+					<input name="nohelp" className="imgButton" type="image" src="Images/nohelp.png" alt="je n'ai pas besoin d'aide"/>
 				</Button>
 				<Button name="" className="skip" onClick={this.handleClick}>Je ne sais pas</Button>
-				<Button name="dislike" className="dislike" onClick={this.handleClick}>
-					
-					<input name="dislike" className="imgButton" type="image" src="Images/dislike.png" alt="je n'aime pas"/>
+				<Button name="help" className="dislike" onClick={this.handleClick}>					
+					<input name="help" className="imgButton" type="image" src="Images/help.png" alt="j'ai besoin d'aide"/>
 				</Button>
 			</div>
 
-			<Link to={'/'}><Button className="next">Aller à la page de résultat</Button></Link>
+			<Link to={'/choiceHappy'}><Button className="next">Aller à la page suivante</Button></Link>
 		</div>
 		);
 	}
 };
 
-export default ChoicePage;
+export default ChoiceHelp;
 
