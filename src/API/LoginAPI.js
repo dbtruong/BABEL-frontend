@@ -1,7 +1,7 @@
 //Login endpoint
 
 import API from "./API.js"
-import axios from 'axios'
+//import axios from 'axios'
 
 class LoginAPI extends API{
 
@@ -10,6 +10,7 @@ class LoginAPI extends API{
         this.endpoint = this.url + "/login";
     }
 
+    //test with await if doesn't work
     checkLogin(login, password){
         // Uncomment to link with backend
         // axios.post(

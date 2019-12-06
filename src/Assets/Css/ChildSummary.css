@@ -1,0 +1,10 @@
+.container {
+    height: 100%;
+    text-align: center;
+    font-family: 'Inkfree';
+}
+
+img {
+    width: 15%;
+    height: 15%;
+}

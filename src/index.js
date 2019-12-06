@@ -8,6 +8,7 @@ import './Assets/Fonts/Inkfree.ttf'
 
 import HomePage from './Components/Before_game/Home/HomePage.jsx';
 import LoginPage from './Components/Before_game/Login/LoginPage.jsx';
+import ChildSummary from './Components/Before_game/ChildSummary/ChildSummary.jsx'
 import ChildConnexionPage from './Components/Before_game/ChildConnexion/ChildConnexionPage.jsx';
 import StartPage from './Components/Before_game/Start/StartPage.jsx';
 import ChoicePage from './Components/ChoicePage/ChoicePage.jsx';
@@ -19,6 +20,9 @@ ReactDOM.render(<Router history={hist}>
     <Switch>
       <Route exact path="/" component={HomePage} />
       <Route path="/login" component={LoginPage} />
+      <Route path="/childSummary" component={ChildSummary} />
+      <Route path="/childConnexion" component={ChildConnexionPage}/>
+      <Route path="/start" component={StartPage}/>
 	  <Route path="/choice" component={ChoicePage} />
     </Switch>
   </Router>, document.getElementById('root'));

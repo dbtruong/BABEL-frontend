@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import '../../../Assets/Css/HomePage.css';
-import Logo from '../../../Assets/Images/logo.png'
 
 
 class HomePage extends Component {
@@ -9,7 +8,7 @@ class HomePage extends Component {
     return(
       <nav className="container">
          
-           <Link to={'/'}><img src={Logo} alt="logo esope" className="Logo"/></Link><br/>
+           <Link to={'/'}><img src="Images/logo.png" alt="logo esope" className="Logo"/></Link><br/>
           <div> 
             <button className="child_button"><Link to={'/childConnexion'} className="nav-link">Enfant</Link></button>
           </div>
