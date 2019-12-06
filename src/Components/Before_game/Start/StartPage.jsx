@@ -10,7 +10,7 @@ class StartPage extends Component {
 
         <nav className="container2">
             <Link to={'/'}><img src="Images/logo.png" alt="logo esope" className="Logo"/></Link><br/>
-            <Button className="roundButton">C'est parti !!</Button>
+            <Link to={'/choice'}><Button className="roundButton">C'est parti !!</Button></Link>
         </nav>
     );
   }

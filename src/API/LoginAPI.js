@@ -24,6 +24,24 @@ class LoginAPI extends API{
         return login + " " + password
     }
 
+    getTest(){
+        let user = {
+            name: "",
+            password: ""
+        }
+
+        fetch('http://localhost:3001/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then(response => response.json())
+        .then(data =>console.log(data))
+    }
+
 }
 
 export default LoginAPI;
