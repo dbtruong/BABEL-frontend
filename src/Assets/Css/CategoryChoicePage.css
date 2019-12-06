@@ -1,0 +1,32 @@
+.container {
+    text-align: center;
+    font-family: 'Inkfree';
+  }
+
+.category_button {
+    display:block; 
+    
+    color: rgb(5, 5, 14)!important;
+    background-color: rgb(125, 189, 253)!important;
+    border-color: #0000FF!important;
+    font-size: 30px!important;
+    line-height: 50px;
+    width: 100%;
+  }
+.category2_button {
+
+    text-align: center;
+   
+    background-color: rgb(125, 189, 253)!important;
+    border-color: #0000FF!important;
+    font-size: 30px!important;
+    height: 200%;
+    width: 441px;
+  }
+.table_order {
+    margin: 0 auto; 
+    
+  }
+.div_order{
+  padding-top: 1px;
+}
