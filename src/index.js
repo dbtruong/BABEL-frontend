@@ -12,11 +12,13 @@ import ChildSummary from './Components/Before_game/ChildSummary/ChildSummary.jsx
 import ChildConnexionPage from './Components/Before_game/ChildConnexion/ChildConnexionPage.jsx';
 import StartPage from './Components/Before_game/Start/StartPage.jsx';
 import CategoryChoicePage from './Components/In_game/CategoryChoice/CategoryChoicePage.jsx'; 
-import ChoicePage from './Components/ChoicePage/ChoicePage.jsx';
 import SortingTopicsPage from './Components/In_game/SortingTopicsPage/SortingTopicsPage.jsx'; 
 import ProfChildChoicePage from './Components/Before_game/ProfChildChoice/ProfChildChoicePage.jsx';
 import SummaryPage from './Components/After_game/Summary/SummaryPage.jsx'; 
 import SettingsPage from './Components/Before_game/Settings/SettingsPage.jsx'; 
+import ChoiceLike from './Components/In_game/ChoicePages/ChoiceLike.jsx';
+import ChoiceHelp from './Components/In_game/ChoicePages/ChoiceHelp.jsx';
+import ChoiceHappy from './Components/In_game/ChoicePages/ChoiceHappy.jsx';
 
 
 var hist = createBrowserHistory();
@@ -30,7 +32,9 @@ ReactDOM.render(<Router history={hist}>
       <Route path="/childConnexion" component={ChildConnexionPage}/>
       <Route path="/start" component={StartPage}/>
       <Route path="/categoryChoice" component={CategoryChoicePage}/>
-      <Route path="/choice" component={ChoicePage} />
+      <Route path="/choiceLike" component={ChoiceLike} />
+      <Route path="/choiceHelp" component={ChoiceHelp} />
+      <Route path="/choiceHappy" component={ChoiceHappy} />
       <Route path="/sortingTopics" component={SortingTopicsPage}/>
       <Route path="/profChildChoice" component={ProfChildChoicePage}/>
       <Route path="/summary" component={SummaryPage}/>
