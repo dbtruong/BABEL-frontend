@@ -1,6 +1,7 @@
 //Login endpoint
 
 import API from "./API.js"
+import Axios from "axios";
 //import axios from 'axios'
 
 class choiceAPI extends API{
@@ -10,7 +11,7 @@ class choiceAPI extends API{
         this.endpoint = this.url + "/choice";
     }
 
-	getCategory(){
+	getImages(){
         const listImages = [
                 [   {name : 'bus', desc : 'Prendre le bus'},
                     {name : 'marcher', desc : 'Marcher'},
@@ -71,7 +72,13 @@ class choiceAPI extends API{
                 ]
         ]
 		return listImages;
-	}
+    }
+    
+    sendImage(name, like){
+        //axios.get()
+        let toSend = {name : name, like : like}
+        console.log(toSend);
+    }
 
 }
 
