@@ -1,5 +1,3 @@
-//Login endpoint
-
 import API from "./API.js"
 //import axios from 'axios'
 
