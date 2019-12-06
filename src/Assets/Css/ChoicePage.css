@@ -1,0 +1,28 @@
+.page {
+	text-align: center;
+	margin: 20px;
+	padding: 20px;
+}
+
+.green{
+	background: #00E200;
+	border: 4px solid #009B00;
+}
+
+.red{
+	background: #E23900;
+	border: 4px solid #9B2700;
+}
+
+body{
+	background-color: #ECECFF;
+	font-family: 'Inkfree';
+}
+
+.divHeigt{
+	height: 350px;
+}
+
+.choice{
+	width: 200px;
+}

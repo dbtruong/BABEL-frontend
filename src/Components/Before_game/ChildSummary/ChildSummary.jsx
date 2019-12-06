@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 
 import '../../../Assets/Css/ChildSummary.css';
 import ChildSummaryAPI from '../../../API/ChildSummaryAPI.js'
@@ -8,7 +9,8 @@ class ChildSummary extends Component{
     constructor(){
         super();
         this.state = {
-            listImages : []
+            listImages : [],
+            date : ""
         }
         this.api = new ChildSummaryAPI();
     }
@@ -17,8 +19,10 @@ class ChildSummary extends Component{
     createSummary(){
         //Can't seem to use setState somehow
         //this.setState({listImages : this.api.getChildSummary()});
-        let images = this.api.getChildSummary();
-        this.state.listImages = images;
+        let sum = this.api.getChildSummary();
+        //console.log(sum[0].date)
+        this.state.listImages = sum[0].images;
+        this.state.date = sum[0].date;
         //console.log(this.state.listImages);
         let summary = [];
         let list = this.state.listImages;
@@ -53,7 +57,9 @@ class ChildSummary extends Component{
         return(
             <div className="container">
                 <h1>Synthèse de l'enfant</h1><br/>
-                {this.createSummary()}
+                {this.createSummary()}<br/>
+                <h2>Séance du  {this.state.date}</h2>
+                <Link to={"/start"}><img src="Images/next.png"/></Link>
             </div>
         )
     }

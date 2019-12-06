@@ -14,12 +14,25 @@ class ChildSummaryAPI extends API{
         // const response = await axios.get(this.endpoint);
         // console.log(response.data);
         // return response.data;
-        let images = [
-            { name : "bus", like : true, help : true, happy : false},
-            { name : "marcher", like : true, help : false, happy : false},
-            { name : "velo", like : false, help : true, happy : false}
+
+        //response doit être un json qui contient images et un attribut date
+        let summary = [
+            {date : "3 décembre 2019",
+            images : [
+                { name : "bus", like : true, help : true, happy : false},
+                { name : "marcher", like : true, help : false, happy : false},
+                { name : "velo", like : false, help : true, happy : false}
+            ]
+            }
         ]
-        return images;
+        // let date = {date : "3 décembre 2019"}
+
+        // let images = [
+        //     { name : "bus", like : true, help : true, happy : false},
+        //     { name : "marcher", like : true, help : false, happy : false},
+        //     { name : "velo", like : false, help : true, happy : false}
+        // ]
+        return summary;
     }
 }
 
