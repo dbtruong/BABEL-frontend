@@ -14,6 +14,7 @@ import StartPage from './Components/Before_game/Start/StartPage.jsx';
 import CategoryChoicePage from './Components/In_game/CategoryChoice/CategoryChoicePage.jsx'; 
 import ChoicePage from './Components/ChoicePage/ChoicePage.jsx';
 import SortingTopicsPage from './Components/In_game/SortingTopicsPage/SortingTopicsPage.jsx'; 
+import SettingsPage from './Components/Before_game/Settings/SettingsPage.jsx'; 
 
 var hist = createBrowserHistory();
 
@@ -28,5 +29,6 @@ ReactDOM.render(<Router history={hist}>
       <Route path="/categoryChoice" component={CategoryChoicePage}/>
       <Route path="/choice" component={ChoicePage} />
       <Route path="/sortingTopics" component={SortingTopicsPage}/>
+      <Route path="/settings" component= {SettingsPage}/>
     </Switch>
   </Router>, document.getElementById('root'));
