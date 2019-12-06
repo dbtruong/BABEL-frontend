@@ -1,0 +1,32 @@
+.container {
+    text-align: center;
+    font-family: 'Inkfree';
+  }
+  .page {
+	text-align: center;
+	font-size: 30px;
+	color: black;
+	margin: 20px;
+	padding: 20px;
+}
+
+
+body{
+	background-color: #ECECFF;
+	font-family: 'Inkfree';
+}
+
+.imgHabit{
+	height: 15%;
+	width: 15%;
+}
+.Sorted_button{
+	height: 200%;
+    width: 90%;
+    background-color: rgb(125, 189, 253)!important;
+    border-color: #0000FF!important;
+}
+.cel{
+    
+    height: 200px;
+}

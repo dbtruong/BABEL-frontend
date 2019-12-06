@@ -17,21 +17,22 @@ class CategoryChoicePage extends Component {
             <table class="table_order">
                 <thead>
                     <tr>
-                        <td><button class="category_button"><Link to={'/childConnexion'} className="nav-link" >Déplacement</Link></button></td>
-                        <td><button class="category_button"><Link to={'/childConnexion'} className="nav-link">Habitation</Link></button></td>
+                        <td><button class="category_button"><Link to={'/sortingTopics'} className="nav-link" >Déplacement</Link></button></td>
+                        <td><button class="category_button"><Link to={'/sortingTopics'} className="nav-link">Habitation</Link></button></td>
                     </tr>
                     <tr>
-                        <td><button class="category_button"><Link to={'/childConnexion'} className="nav-link">Loisirs</Link></button></td>
-                        <td><button class="category_button"><Link to={'/childConnexion'} className="nav-link">Nutrition</Link></button></td>
+                        <td><button class="category_button"><Link to={'/sortingTopics'} className="nav-link">Loisirs</Link></button></td>
+                        <td><button class="category_button"><Link to={'/sortingTopics'} className="nav-link">Nutrition</Link></button></td>
                     </tr>
                     <tr>
-                        <td><button class="category_button"><Link to={'/childConnexion'} className="nav-link">Soins</Link></button></td>
-                        <td><button class="category_button"><Link to={'/childConnexion'} className="nav-link">Responsabilité</Link></button></td>
+                        <td><button class="category_button"><Link to={'/sortingTopics'} className="nav-link">Soins</Link></button></td>
+                        <td><button class="category_button"><Link to={'/sortingTopics'} className="nav-link">Responsabilité</Link></button></td>
                     </tr>
+                    
                 </thead>
             </table>
             <div class="div_order">
-                <button class="category2_button"><Link to={'/childConnexion'} className="nav-link">Relations/Communication</Link></button>
+                <button class="category2_button"><Link to={'/sortingTopics'} className="nav-link">Relations/Communication</Link></button>
             </div>
         </div>
         </nav>
