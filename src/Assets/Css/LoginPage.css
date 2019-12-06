@@ -24,6 +24,6 @@ html, #root{
     background-color: #FFA700!important;
     border-color: #FFA700!important;
     font-size: 30px!important;
-    height: 20%;
-    width: 20%;
+    height: 20%!important;
+    width: 20%!important;
 }
