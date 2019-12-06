@@ -18,9 +18,9 @@ class SortingTopicsPage extends Component {
                 <table>
                     <tbody>
                         <tr>
-                            <td class="cel"><button class="Sorted_button">Présent dans mes habitudes</button></td>
-                            <td class="cel"><button class="Sorted_button">Non-présent dans mes habitudes</button></td>
-                            <td class="cel"><button class="Sorted_button">Je veux dans mes habitudes</button></td>
+                            <td class="cel"><button class="Sorted_button"><Link to={'/choice'} className="nav-link">Présent dans mes habitudes</Link></button></td>
+                            <td class="cel"><button class="Sorted_button"><Link to={'/choice'} className="nav-link">Non-présent dans mes habitudes</Link></button></td>
+                            <td class="cel"><button class="Sorted_button"><Link to={'/choice'} className="nav-link">Je veux dans mes habitudes</Link></button></td>
                         </tr>
                     </tbody>
                 </table>
