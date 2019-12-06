@@ -1,20 +1,25 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
 import '../../Assets/Css/ChoicePage.css';
-import Button from 'react-bootstrap/Button';
+import choiceAPI from '../../API/choiceAPI.js'
 
-import Habit from '../../Assets/Images/habit.jpg'
 import Like from '../../Assets/Images/like.png'
 import Dislike from '../../Assets/Images/dislike.png'
 
 class ChoicePage extends Component {
+	
+	constructor(){
+        super();
+        this.api = new choiceAPI();
+		this.habit = this.api.getHabits();
+    }
+	
+	
   render(){
     return(
       <div className="page">
 		<div className="mb-5">
-		<img src={Habit} alt="habit" className="imgHabit" height="200" width="200"/>
+		<img src={this.habit} alt="habit" className="imgHabit" height="200" width="200"/>
 		</div>
-		
 		<div className="row d-flex justify-content-center divHeigt">
 			<div className="col-sm-4 green choice">
 				<div className="page"> J'aime </div>
