@@ -5,6 +5,7 @@ import { Router, Route, Switch } from "react-router-dom";
 import './Assets/Css/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Assets/Fonts/Inkfree.ttf'
+import * as serviceWorker from './serviceWorker';
 
 import HomePage from './Components/Before_game/Home/HomePage.jsx';
 import LoginPage from './Components/Before_game/Login/LoginPage.jsx';
@@ -42,4 +43,6 @@ ReactDOM.render(<Router history={hist}>
       <Route path="/commentary" component={CommentaryPage}/>
     </Switch>
   </Router>, document.getElementById('root'));
+
+  serviceWorker.register();
  
