@@ -11,7 +11,13 @@ class LoginPage extends Component{
         super();
         this.state = {
             login : "",
-            password: ""
+            password : "",
+            redirection : "/"
+        }
+        if (localStorage.getItem('role') == 'parent'){
+            this.state.redirection = "/childSummary"
+        } else {
+            this.state.redirection = "/profChildChoice"
         }
         this.api = new LoginAPI();
         this.handleClick = this.handleClick.bind(this);
@@ -25,6 +31,7 @@ class LoginPage extends Component{
         //     })
         //console.log(this.api.checkLogin(this.state.login, this.state.password));
         console.log(this.api.getTest());
+        console.log(this.state.redirection);
     }
 
     render(){
@@ -48,11 +55,13 @@ class LoginPage extends Component{
                     value = {this.state.password}
                     onChange={e => this.setState({password : e.target.value})}>
                 </input><br/><br/>
-                <Button 
-                    className="button"
-                    onClick={this.handleClick}>
-                    Connexion
-                </Button>
+                <Link to={`${this.state.redirection}`}>
+                    <Button 
+                        className="button"
+                        onClick={this.handleClick}>
+                        Connexion
+                    </Button>
+                </Link>
             </div>
 
         );

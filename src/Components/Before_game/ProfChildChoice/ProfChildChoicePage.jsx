@@ -46,7 +46,7 @@ class ProfChildChoicePage extends Component {
                <Link to={'/newChild'}><Button className="button">Introduire un nouvel enfant</Button></Link>
             </div>
             <div className="col-sm-4">
-              <Link to={'/gameConfig'}><Button className="button">Selectionner</Button></Link>
+              <Link to={'/settings'}><Button className="button">Selectionner</Button></Link>
             </div>
           </div>
         </nav>
