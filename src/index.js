@@ -14,10 +14,11 @@ import StartPage from './Components/Before_game/Start/StartPage.jsx';
 import CategoryChoicePage from './Components/In_game/CategoryChoice/CategoryChoicePage.jsx'; 
 import SortingTopicsPage from './Components/In_game/SortingTopicsPage/SortingTopicsPage.jsx'; 
 import ProfChildChoicePage from './Components/Before_game/ProfChildChoice/ProfChildChoicePage.jsx';
+import SummaryPage from './Components/After_game/Summary/SummaryPage.jsx'; 
+import SettingsPage from './Components/Before_game/Settings/SettingsPage.jsx'; 
 import ChoiceLike from './Components/In_game/ChoicePages/ChoiceLike.jsx';
 import ChoiceHelp from './Components/In_game/ChoicePages/ChoiceHelp.jsx';
 import ChoiceHappy from './Components/In_game/ChoicePages/ChoiceHappy.jsx';
-import SettingsPage from './Components/Before_game/Settings/SettingsPage.jsx'
 import CommentaryPage from './Components/In_game/Commentary/CommentaryPage.jsx';
 
 var hist = createBrowserHistory();
@@ -36,7 +37,10 @@ ReactDOM.render(<Router history={hist}>
       <Route path="/choiceHappy" component={ChoiceHappy} />
       <Route path="/sortingTopics" component={SortingTopicsPage}/>
       <Route path="/profChildChoice" component={ProfChildChoicePage}/>
+      <Route path="/summary" component={SummaryPage}/>
       <Route path="/settings" component={SettingsPage}/>
-      <Route path="/commentary" component={CommentaryPage}/>
+      <Route path="/CommentaryPage" component={CommentaryPage}/>
+      
     </Switch>
   </Router>, document.getElementById('root'));
+ 
