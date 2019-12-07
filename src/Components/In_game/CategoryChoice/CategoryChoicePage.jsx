@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
 import '../../../Assets/Css/CategoryChoicePage.css';
 
 class CategoryChoicePage extends Component {
