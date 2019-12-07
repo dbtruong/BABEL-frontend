@@ -21,6 +21,7 @@ class commentaryPage extends Component{
                 <div className="col-sm-4">
                     <textarea class="form-control" id={habit.get("id")} rows="4"></textarea>
                 </div>
+                <button>Valider</button>
             </div>
         );
     }
@@ -29,6 +30,7 @@ class commentaryPage extends Component{
         return(
             <div>
                 {this.commentaries(this.api.getHabits())}
+                <Link to={'/summary'}><button>Tout confirmer</button></Link>
             </div>
         );
     }

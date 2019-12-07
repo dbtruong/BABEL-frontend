@@ -39,8 +39,7 @@ ReactDOM.render(<Router history={hist}>
       <Route path="/profChildChoice" component={ProfChildChoicePage}/>
       <Route path="/summary" component={SummaryPage}/>
       <Route path="/settings" component={SettingsPage}/>
-      <Route path="/CommentaryPage" component={CommentaryPage}/>
-      
+      <Route path="/commentary" component={CommentaryPage}/>
     </Switch>
   </Router>, document.getElementById('root'));
  

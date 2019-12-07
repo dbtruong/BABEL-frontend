@@ -11,19 +11,19 @@ class SettingsPage extends Component {
             <div>
                 <br/>
                 <h5>Choisissez l'ordre des étapes que vous voulez</h5>
-                <table class="table_settings">
+                <table className="table_settings">
                     <thead>
                         <tr>
-                            <td class="cel"><button class="button_settings">Aime - Aide - Content</button></td>
-                            <td class="cel"><button class="button_settings">Aime - Content - Aide</button></td>
+                            <td className="cel"><button className="button_settings">Aime - Aide - Content</button></td>
+                            <td className="cel"><button className="button_settings">Aime - Content - Aide</button></td>
                         </tr>
                         <tr>
-                            <td class="cel"><button class="button_settings">Aide - Aime - Content</button></td>
-                            <td class="cel"><button class="button_settings">Aide - Content - Aime</button></td>
+                            <td className="cel"><button className="button_settings">Aide - Aime - Content</button></td>
+                            <td className="cel"><button className="button_settings">Aide - Content - Aime</button></td>
                         </tr>
                         <tr>
-                            <td class="cel"><button class="button_settings">Content - Aide - Aime</button></td>
-                            <td class="cel"><button class="button_settings">Content - Aime - Aide</button></td>
+                            <td className="cel"><button className="button_settings">Content - Aide - Aime</button></td>
+                            <td className="cel"><button className="button_settings">Content - Aime - Aide</button></td>
                         </tr>
                     </thead>
                 </table>
@@ -34,16 +34,16 @@ class SettingsPage extends Component {
                 <table class="table_settings">
                     <thead>
                     <tr>
-                        <td class="cel"><button class="button_settings">Déplacement</button></td>
-                        <td class="cel"><button class="button_settings">Habitation</button></td>
+                        <td className="cel"><button className="button_settings">Déplacement</button></td>
+                        <td className="cel"><button className="button_settings">Habitation</button></td>
                     </tr>
                     <tr>
-                        <td class="cel"><button class="button_settings">Loisirs</button></td>
-                        <td class="cel"><button class="button_settings">Nutrition</button></td>
+                        <td className="cel"><button className="button_settings">Loisirs</button></td>
+                        <td className="cel"><button className="button_settings">Nutrition</button></td>
                     </tr>
                     <tr>
-                        <td class="cel"><button class="button_settings">Soins</button></td>
-                        <td class="cel"><button class="button_settings">Responsabilité</button></td>
+                        <td className="cel"><button className="button_settings">Soins</button></td>
+                        <td className="cel"><button className="button_settings">Responsabilité</button></td>
                     </tr>
                     </thead>
                 </table>
@@ -53,8 +53,8 @@ class SettingsPage extends Component {
                 <table class="table_settings">
                     <thead>
                         <tr>
-                           <td class="cel2"><button class="button_settings2">Continuer dernière partie</button></td>
-                           <td class="cel2"><button class="button_settings2">Commencer nouvelle partie</button></td>
+                           <td className="cel2"><Link to={'/commentary'}><button className="button_settings2">Continuer dernière partie</button></Link></td>
+                           <td className="cel2"><Link to={'/commentary'}><button className="button_settings2">Commencer nouvelle partie</button></Link></td>
                         </tr>
                     </thead>
                 </table>
