@@ -27,6 +27,9 @@
 }
 .elem_center{
     margin: 0 auto; 
+    border-collapse: separate;
+    border-spacing: 50px;
+    
 }
 .button_sum{
     background-color: rgb(125, 189, 253)!important;
@@ -38,5 +41,9 @@
     height: 100%; 
     width: 80%; 
     margin: 0 auto; 
+}
+.tab_order2 {
+    padding-right: 30%;
+    
 }
 

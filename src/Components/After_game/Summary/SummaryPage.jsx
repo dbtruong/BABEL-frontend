@@ -1,15 +1,39 @@
 import React, { Component } from 'react';
 import '../../../Assets/Css/Summary.css';
 import { Link } from 'react-router-dom';
+import SummaryAPI from '../../../API/SummaryAPI.js'
 
 class SummaryPage extends Component {
+
+    constructor(){
+        super();
+        this.state = {
+            currentCategory : "",
+            SessionDate : "",
+            SessionDates : [],
+
+        }
+        this.api = new SummaryAPI();
+        //this.state.SessionDates = this.api.loadSessions(); 
+        this.handleChange = this.handleChange.bind(this);
+    }
+    handleChange(e){
+        this.setState({value: e.target.value});
+    }
+
+
+    
+    
+
   render() {
     return (
         <nav class="container">
             <h4>Résumé</h4>
             <div>
                 <h5>Choisissez la date de session</h5>
-                <select> </select>
+                <select onChange={this.handleChange}> 
+                 {this.state.SessionDates}
+                </select>
                 <button class="button_sum">Confirmer</button>
             </div>
             <br/>
@@ -17,26 +41,32 @@ class SummaryPage extends Component {
              <table class="elem_center">
                 <tbody>
                     <tr>
-                        <td>
-                        <h5>Choisissez une catégorie </h5>
-                            <table class="cel3">
-                                <thead>
-                                    <tr>
-                                        <td class="cel"><button class="button_settings">Déplacement</button></td>
-                                        <td class="cel"><button class="button_settings">Habitation</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cel"><button class="button_settings">Loisirs</button></td>
-                                        <td class="cel"><button class="button_settings">Nutrition</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cel"><button class="button_settings">Soins</button></td>
-                                        <td class="cel"><button class="button_settings">Responsabilité</button></td>
-                                    </tr>
-                                 </thead>
-                            </table>
-                        </td>
                         <td class="cel3">
+                        <h5>Choisissez une catégorie </h5>
+                        <div>
+                            <table class="table_order">
+                            <thead>
+                                <tr>
+                                    <td class="cel"><button name="Déplacement" class="button_settings" onClick={this.handleClick}>Déplacement</button></td>
+                                    <td class="cel"><button name="Habitation" class="button_settings" onClick={this.handleClick}>Habitation</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="cel"><button name="Loisirs" class="button_settings" onClick={this.handleClick}>Loisirs</button></td>
+                                    <td class="cel"><button name="Nutrition" class="button_settings" onClick={this.handleClick}>Nutrition</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="cel"><button name="Soins" class="button_settings" onClick={this.handleClick}>Soins</button></td>
+                                    <td class="cel"><button name="Responsabilité" class="button_settings" onClick={this.handleClick}>Responsabilité</button></td>
+                                </tr>
+                            </thead>
+                            </table>
+                            <div class="div_order">
+                            <button name="Relations/Communication" class="button_settings" onClick={this.handleClick}>Relations/Communication</button>
+                            </div>
+                        </div>
+                        </td>
+                        
+                        <td>
                         <h5>Choisissez pour trier</h5>
                         <table>
                             <thead>
