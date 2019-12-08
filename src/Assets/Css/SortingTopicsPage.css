@@ -16,6 +16,10 @@ body{
 	font-family: 'Inkfree';
 }
 
+.table_order{
+	margin: 0 auto;
+}
+
 .imgHabit{
 	height: 15%;
 	width: 15%;
