@@ -19,6 +19,8 @@ import ChoiceHelp from './Components/In_game/ChoicePages/ChoiceHelp.jsx';
 import ChoiceHappy from './Components/In_game/ChoicePages/ChoiceHappy.jsx';
 import SettingsPage from './Components/Before_game/Settings/SettingsPage.jsx'
 
+import MovieTest from './Components/MovieTest.js'
+
 var hist = createBrowserHistory();
 
 
@@ -36,5 +38,6 @@ ReactDOM.render(<Router history={hist}>
       <Route path="/sortingTopics" component={SortingTopicsPage}/>
       <Route path="/profChildChoice" component={ProfChildChoicePage}/>
       <Route path="/settings" component={SettingsPage}/>
+      <Route path="/movie" component={MovieTest}/>
     </Switch>
   </Router>, document.getElementById('root'));
