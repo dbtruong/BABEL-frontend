@@ -23,6 +23,20 @@ class SummaryPage extends Component {
         this.handleClick2 = this.handleClick2.bind(this); 
         this.handleClick3 = this.handleClick3.bind(this);
         this.handleClick4 = this.handleClick4.bind(this);
+        this.createSelect(); 
+    }
+
+    createSelect(){
+        let sessions = []; 
+        
+        for (let i =0; i < this.state.SessionDates.length; i++){
+            sessions.push(<option key={this.state.SessionDates[i].id} value={this.state.SessionDates[i].id}> {this.state.SessionDates[i].session} </option>)
+        }
+        this.setState({
+            SessionDates: sessions
+          });
+        
+
     }
     handleChange(e){
         this.setState({value: e.target.value});
@@ -123,6 +137,45 @@ class SummaryPage extends Component {
          }
          tab.forEach(element => document.getElementsByName(element)[0].style.borderColor = '#7dbdfd');
     }
+    
+    getHabit(habit){
+        let f= "X"; 
+        let t= "V"; 
+        if(habit.id==="Love"){
+            if(habit.love){
+                return t; 
+            }else{
+                return f; 
+            }
+        }
+        if(habit.id==="Help"){
+            if(habit.help){
+                return t; 
+            }else{
+                return f; 
+            }
+        }
+        if(habit.id==="Happy"){
+            if(habit.happy){
+                return t;
+            }else{
+                return f; 
+            }
+        }   
+    }
+
+    resume(habits){
+        return habits.map((habit)=>
+        <tr>
+            <td><img src={this.imagePath+habit.get("picture")} alt={habit.get("id")}/></td>
+            <td>{this.getHabit(habit)}</td>
+            <td>{this.getHabit(habit)}</td>
+            <td>{this.getHabit(habit)}</td> 
+        </tr>
+        );
+        //{this.resume(this.api.getHabits())}
+    }
+
     render() {
     return (
         <nav class="container">
@@ -192,17 +245,14 @@ class SummaryPage extends Component {
                 <table class="tab_dimension">
                     <thead>
                         <tr>
-                            <td class="cel4"><p>Habitudes</p></td>
+                            <td class="cel4"><h4>Habitudes</h4></td>
                             <td class="cel4"><img src="Images/like.png" alt="logo aime" class="logo_summary"/></td>
-                            <td class="cel4"><img src="Images/unlike.png" alt="logo aime pas" class="logo_summary"/></td>
                             <td class="cel4"><img src="Images/help.png" alt="logo aide" class="logo_summary"/></td>
-                            <td class="cel4"><img src="Images/nohelp.png" alt="logo aide pas" class="logo_summary"/></td>
                             <td class="cel4"><img src="Images/happy.png" alt="logo content" class="logo_summary"/></td>
-                            <td class="cel4"><img src="Images/unhappy.png" alt="logo pas content" class="logo_summary"/></td>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr></tr>
+                        
                     </tbody>
                 </table>
             </div>

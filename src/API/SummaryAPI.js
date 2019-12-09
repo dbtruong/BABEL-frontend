@@ -1,11 +1,8 @@
-import API from "./API.js"
 
-class SummaryAPI extends API{
 
-    constructor(){
-        super();
-        this.endpoint = this.url + "/summary";
-    }
+class SummaryAPI {
+
+   
 
     sendCategory(name){
         //axios.get()
@@ -15,7 +12,7 @@ class SummaryAPI extends API{
     loadSessions(){
         //axios.get()
     }
-    getChildSummary(){
+    getHabits(){
         // const response = await axios.get(this.endpoint);
         // console.log(response.data);
         // return response.data;
