@@ -1,14 +1,6 @@
-//ChildSummary endpoint
+import axios from 'axios'
 
-import API from "./API.js"
-//import axios from 'axios'
-
-class ChildSummaryAPI extends API{
-
-    constructor(){
-        super();
-        this.endpoint = this.url + "/childSummary";
-    }
+class ChildSummaryAPI{
 
     getChildSummary(){
         // const response = await axios.get(this.endpoint);

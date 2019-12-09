@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import LoginAPI from '../../../API/LoginAPI.js'
 
@@ -12,7 +12,8 @@ class LoginPage extends Component{
         this.state = {
             login : "",
             password : "",
-            redirection : "/"
+            redirection : "/",
+            message : ""
         }
         if (localStorage.getItem('role') == 'parent'){
             this.state.redirection = "/childSummary"
@@ -23,15 +24,14 @@ class LoginPage extends Component{
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick(){
-        // Uncomment to link with backend
-        // this.api.checkLogin(this.state.login, this.state.password)
-        //     .then(res => {
-        //         console.log(res.data);
-        //     })
-        //console.log(this.api.checkLogin(this.state.login, this.state.password));
-        console.log(this.api.getTest());
-        console.log(this.state.redirection);
+    async handleClick(){
+        let res = await this.api.checkLogin(this.state.login, this.state.password);
+        if (res.length){
+            localStorage.setItem('sessionId', res[0].id)
+            this.props.history.push(this.state.redirection)
+        } else {
+            this.setState({message : "Identifiants incorrects"})
+        }
     }
 
     render(){
@@ -55,13 +55,12 @@ class LoginPage extends Component{
                     value = {this.state.password}
                     onChange={e => this.setState({password : e.target.value})}>
                 </input><br/><br/>
-                <Link to={`${this.state.redirection}`}>
-                    <Button 
-                        className="button"
-                        onClick={this.handleClick}>
-                        Connexion
-                    </Button>
-                </Link>
+                <Button 
+                    className="button"
+                    onClick={this.handleClick}>
+                    Connexion
+                </Button><br/><br/>
+                <p className="wrongCredentials">{this.state.message}</p>
             </div>
 
         );
