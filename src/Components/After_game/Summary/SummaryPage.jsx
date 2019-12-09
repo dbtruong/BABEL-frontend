@@ -23,7 +23,7 @@ class SummaryPage extends Component {
         this.handleClick2 = this.handleClick2.bind(this); 
         this.handleClick3 = this.handleClick3.bind(this);
         this.handleClick4 = this.handleClick4.bind(this);
-        this.createSelect(); 
+        
     }
 
     createSelect(){
@@ -32,10 +32,11 @@ class SummaryPage extends Component {
         for (let i =0; i < this.state.SessionDates.length; i++){
             sessions.push(<option key={this.state.SessionDates[i].id} value={this.state.SessionDates[i].id}> {this.state.SessionDates[i].session} </option>)
         }
-        this.setState({
+        /*this.setState({
             SessionDates: sessions
-          });
+          });*/
         
+          return sessions; 
 
     }
     handleChange(e){
@@ -183,7 +184,7 @@ class SummaryPage extends Component {
             <div>
                 <h5>Choisissez la date de session</h5>
                 <select onChange={this.handleChange}> 
-                 {this.state.SessionDates}
+                 {this.createSelect()}
                 </select>
                 <button class="button_sum">Confirmer</button>
             </div>
