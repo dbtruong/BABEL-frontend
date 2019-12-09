@@ -6,6 +6,16 @@
 .table_settings {
     margin: 0 auto;
 }
+.table_settings2 {
+    margin: 0 auto;
+    border-spacing: 5px;
+    border-style: groove;
+    background-color: #7dbdfd;
+}
+.tr2, .td2{
+    border: thin solid
+}
+
 .button_settings4 {
     background-color: #7dbdfd;
     /*border-color: #0000ff;*/

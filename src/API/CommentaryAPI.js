@@ -7,7 +7,18 @@ class commentaryAPI extends API{
         this.endpoint = this.url + "/choice";
     }
 
-    getHabits(){
+    getHabitsByCategory(id){
+        /*axios.get('/getHabitsByCategory?ID='+id)
+        .then(function (response) {
+            return new Map(JSON.parse(response))
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .finally(function () {
+            // always executed
+        });*/
         var hab1 = new Map();
         hab1.set("id", "01");
         hab1.set("picture", "toilette.jpg");

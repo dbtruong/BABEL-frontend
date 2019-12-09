@@ -9,6 +9,17 @@ class profChildChoiceAPI extends API{
     }
 
 	getChildByProf(id){
+        /*axios.get('/getChildByProf?ID='+id)
+        .then(function (response) {
+            return new Map(JSON.parse(response))
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .finally(function () {
+            // always executed
+        });*/
         var child1 = new Map();
         child1.set("id", "01");
         child1.set("picture", "jules.jpg");

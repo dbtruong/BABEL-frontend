@@ -9,7 +9,7 @@ class commentaryPage extends Component{
         super();
         this.api = new commentaryAPI();
         this.imagePath = "Images/"
-
+        this.id = 1;
     }
 
     commentaries(habits){
@@ -29,7 +29,7 @@ class commentaryPage extends Component{
     render(){
         return(
             <div>
-                {this.commentaries(this.api.getHabits())}
+                {this.commentaries(this.api.getHabitsByCategory(this.id))}
                 <Link to={'/summary'}><button>Tout confirmer</button></Link>
             </div>
         );
