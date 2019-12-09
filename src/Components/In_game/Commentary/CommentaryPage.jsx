@@ -29,7 +29,7 @@ class commentaryPage extends Component{
     render(){
         return(
             <div>
-                {this.commentaries(this.api.getHabitsByCategory(id))}
+                {this.commentaries(this.api.getHabitsByCategory(this.id))}
                 <Link to={'/summary'}><button>Tout confirmer</button></Link>
             </div>
         );
