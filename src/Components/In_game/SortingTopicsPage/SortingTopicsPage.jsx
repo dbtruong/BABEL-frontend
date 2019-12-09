@@ -9,7 +9,7 @@ class SortingTopicsPage extends Component {
     constructor(){
         super();
         this.state = {
-			listImages : [],
+            listImages : [],
 			currentImg : "",
 			currentDesc : "",
 			indexCat : 0,
