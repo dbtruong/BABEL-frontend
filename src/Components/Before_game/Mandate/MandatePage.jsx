@@ -18,10 +18,10 @@ class MandatePage extends Component {
     }
 
     handleClick(e){
-        let childid = localStorage.getItem("chilId"); 
+        let childid = localStorage.getItem("idChild"); 
         let date = Date.now(); 
         this.state.comments = document.getElementById('comments').value; 
-        this.api.sendMandate(childid, this.state.instigator,this.state.comments,date); 
+        this.state.childId = this.api.sendMandate(childid, this.state.instigator,this.state.comments,date); 
     }
 
   render() {
