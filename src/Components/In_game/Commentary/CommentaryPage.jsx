@@ -14,14 +14,14 @@ class commentaryPage extends Component{
 
     commentaries(habits){
         return habits.map((habit)=>
-            <div className="row justify-content-center" key = {""+habit.get("id")}>
+            <div className="row justify-content-center habit" key = {""+habit.get("id")}>
                 <div className="col-sm-2">
                     <img src={this.imagePath+habit.get("picture")} alt={habit.get("nom")} className="Logo"/>
                 </div>
                 <div className="col-sm-4">
                     <textarea class="form-control" id={habit.get("id")} rows="4"></textarea>
                 </div>
-                <button>Valider</button>
+                <button className="button">Valider</button>
             </div>
         );
     }
@@ -30,7 +30,7 @@ class commentaryPage extends Component{
         return(
             <div>
                 {this.commentaries(this.api.getHabitsByCategory(this.id))}
-                <Link to={'/summary'}><button>Tout confirmer</button></Link>
+                <Link to={'/summary'}><button className="button">Tout confirmer</button></Link>
             </div>
         );
     }
