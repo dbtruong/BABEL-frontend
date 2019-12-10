@@ -188,7 +188,7 @@ class SummaryPage extends Component {
                 </select>
                 <button class="button_sum">Confirmer</button>
             </div>
-            <br/>
+          
             <div>
              <table class="elem_center">
                 <tbody>
@@ -257,6 +257,16 @@ class SummaryPage extends Component {
                     </tbody>
                 </table>
             </div>
+            <br/>
+            <div>
+                <h4>Commentaires</h4>
+                <textarea id="comments" rows="5" cols="40">
+
+                </textarea>
+                <br/>
+                <button class="button_settings5">Commenter</button>
+            </div>
+            <br/>
         </nav>
         
     );
