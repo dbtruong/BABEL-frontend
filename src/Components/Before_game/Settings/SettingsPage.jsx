@@ -9,7 +9,9 @@ class SettingsPage extends Component {
         super();
         this.state = {
             currentCategory : "",
-            stepOrder : 0, 
+            stepOrder1 : 0,
+            stepOrder2 : 0,
+            stepOrder3 : 0,  
             categoryPriority : [],
             categories : [], 
             cntPrior: 0,
@@ -32,9 +34,30 @@ class SettingsPage extends Component {
         this.api = new SettingsAPI();
         this.handleClick = this.handleClick.bind(this);
         this.handleClick2 = this.handleClick2.bind(this);
-        
+        this.handleClick3 = this.handleClick3.bind(this);
+        this.sendToBackEnd = this.sendToBackEnd.bind(this);
         //this.category = this.api.loadCategories(id);  
         
+  }
+  async sendToBackEnd(categorietab){
+    //let childId = localStorage.getItem("childId");
+    //let userId = localStorage.getItem("sessionId"); 
+    //let gameSessionId = localStorage.getItem("gameSessionId");
+    //let mandatId = localStorage.getItem("mandatId); 
+    let mandatId = 2; 
+    let childId = 1; 
+    let gameSessionId = 1; 
+    let userId = 2; 
+    let gameSession = await this.api.getGameSession(gameSessionId); 
+    for(let i = 1; i <=this.state.categoryPriority.length; i++){
+        this.api.updateCategory(gameSessionId, this.state.categoryPriority[i], i); 
+    }
+    this.api.setStep(gameSessionId,gameSession[0].start_date,gameSession[0].guardian_comment,gameSession[0].prof_comment,this.state.stepOrder1,this.state.stepOrder2,this.state.stepOrder3,gameSession[0].finished_state,gameSession[0].version,childId,userId,mandatId); 
+    
+
+}
+  handleClick3(e){
+    this.sendToBackEnd(this.state.categoryPriority);
   }
   handleClick(e){
     // 1 Love - Help - Happy
@@ -48,38 +71,47 @@ class SettingsPage extends Component {
      let tab; 
      if(stepOrder==="1"){
         document.getElementsByName("1")[0].style.borderColor = 'red';
-        this.state.stepOrder= 1; 
+        this.state.stepOrder1= 1; 
+        this.state.stepOrder2= 2;
+        this.state.stepOrder3= 3;
         tab = ["2","3","4","5","6"]; 
      }
      if(stepOrder==="2"){
         document.getElementsByName("2")[0].style.borderColor = 'red';
-        this.state.stepOrder= 2;
+        this.state.stepOrder1= 1;
+        this.state.stepOrder2= 3;
+        this.state.stepOrder3= 2;
         tab = ["1","3","4","5","6"]; 
      }
      if(stepOrder==="3"){
         document.getElementsByName("3")[0].style.borderColor = 'red';
-        this.state.stepOrder= 3;
+        this.state.stepOrder1= 2;
+        this.state.stepOrder2= 1;
+        this.state.stepOrder3= 3;
         tab = ["1","2","4","5","6"]; 
      }
      if(stepOrder==="4"){
         document.getElementsByName("4")[0].style.borderColor = 'red';
-        this.state.stepOrder= 4;
+        this.state.stepOrder1= 2;
+        this.state.stepOrder2= 3;
+        this.state.stepOrder3= 1;
         tab = ["1","2","3","5","6"]; 
      }
      if(stepOrder==="5"){
         document.getElementsByName("5")[0].style.borderColor = 'red';
-        this.state.stepOrder= 5;
+        this.state.stepOrder1= 3;
+        this.state.stepOrder2= 1;
+        this.state.stepOrder3= 2;
         tab = ["1","2","3","4","6"]; 
      }
      if(stepOrder==="6"){
         document.getElementsByName("6")[0].style.borderColor = 'red';
-        this.state.stepOrder= 6;
+        this.state.stepOrder1= 3;
+        this.state.stepOrder2= 2; 
+        this.state.stepOrder3= 1;
         tab = ["1","2","3","4","5"]; 
      }
-     
      tab.forEach(i => document.getElementsByName(i)[0].style.borderColor = '#7dbdfd'); 
-
-     
   }
   createPriorCategories(){
       let categTab = [];
@@ -115,13 +147,13 @@ class SettingsPage extends Component {
         
         if(this.state.cnt1 %2 ===0){
             
-            this.state.categoryPriority[this.state.cntPrior]="Déplacement";
+            this.state.categoryPriority[this.state.cntPrior]=5;
             document.getElementById(""+this.state.cntPrior).innerHTML= "Déplacement"; 
             this.state.cnt1Bis = this.state.cntPrior; 
             this.state.cntPrior++;
             
         }else {
-            this.state.categoryPriority[this.state.cnt1Bis]="";
+            this.state.categoryPriority[this.state.cnt1Bis]=0;
             document.getElementById(""+this.state.cnt1Bis).innerHTML= "/";
             this.state.cntPrior = this.state.cnt1Bis; 
         }
@@ -129,12 +161,12 @@ class SettingsPage extends Component {
     }
     if(prior === "Prior2"){
         if(this.state.cnt2 %2 ===0){
-            this.state.categoryPriority[this.state.cntPrior]="Habitation"; 
+            this.state.categoryPriority[this.state.cntPrior]=4; 
             document.getElementById(""+this.state.cntPrior).innerHTML= "Habitation ";
             this.state.cnt2Bis = this.state.cntPrior;
             this.state.cntPrior++;
         }else {
-            this.state.categoryPriority[this.state.cnt2Bis]="";
+            this.state.categoryPriority[this.state.cnt2Bis]=0;
             document.getElementById(""+this.state.cnt2Bis).innerHTML= "/";
             this.state.cntPrior = this.state.cnt2Bis;  
         }
@@ -142,12 +174,12 @@ class SettingsPage extends Component {
     }
     if(prior === "Prior3"){
         if(this.state.cnt3 %2 ===0){
-            this.state.categoryPriority[this.state.cntPrior]="Loisirs";
+            this.state.categoryPriority[this.state.cntPrior]=7;
             document.getElementById(""+this.state.cntPrior).innerHTML= "Loisirs ";
             this.state.cnt3Bis = this.state.cntPrior;
             this.state.cntPrior++;
         }else {
-            this.state.categoryPriority[this.state.cnt3Bis]="";
+            this.state.categoryPriority[this.state.cnt3Bis]=0;
             document.getElementById(""+this.state.cnt3Bis).innerHTML= "/";
             this.state.cntPrior = this.state.cnt3Bis; 
         }
@@ -155,12 +187,12 @@ class SettingsPage extends Component {
     }
     if(prior === "Prior4"){
         if(this.state.cnt4 %2 ===0){
-            this.state.categoryPriority[this.state.cntPrior]="Nutrition"; 
+            this.state.categoryPriority[this.state.cntPrior]=1; 
             document.getElementById(""+this.state.cntPrior).innerHTML= "Nutrition ";
             this.state.cnt4Bis = this.state.cntPrior;
             this.state.cntPrior++;
         }else {
-            this.state.categoryPriority[this.state.cnt4Bis]=""; 
+            this.state.categoryPriority[this.state.cnt4Bis]=0; 
             document.getElementById(""+this.state.cnt4Bis).innerHTML= "/";
             this.state.cntPrior = this.state.cnt4Bis; 
         }
@@ -169,12 +201,12 @@ class SettingsPage extends Component {
     if(prior === "Prior5"){
         if(this.state.cnt5 %2 ===0){
 
-            this.state.categoryPriority[this.state.cntPrior]="Soins"; 
+            this.state.categoryPriority[this.state.cntPrior]=2; 
             document.getElementById(""+this.state.cntPrior).innerHTML= "Soins ";
             this.state.cnt5Bis = this.state.cntPrior;
             this.state.cntPrior++;
         }else {
-            this.state.categoryPriority[this.state.cnt5Bis]=""; 
+            this.state.categoryPriority[this.state.cnt5Bis]=0; 
             document.getElementById(""+this.state.cnt5Bis).innerHTML= "/";
             this.state.cntPrior = this.state.cnt5Bis; 
         }
@@ -182,12 +214,12 @@ class SettingsPage extends Component {
     }
     if(prior === "Prior6"){
         if(this.state.cnt6 %2 ===0){
-            this.state.categoryPriority[this.state.cntPrior]="Responsabilité"; 
+            this.state.categoryPriority[this.state.cntPrior]=6; 
             document.getElementById(""+this.state.cntPrior).innerHTML= "Responsabilité ";
             this.state.cnt6Bis = this.state.cntPrior; 
             this.state.cntPrior++;
         }else {
-            this.state.categoryPriority[this.state.cnt6Bis]=""; 
+            this.state.categoryPriority[this.state.cnt6Bis]=0; 
             document.getElementById(""+this.state.cnt6Bis).innerHTML= "/";
             this.state.cntPrior = this.state.cnt6Bis; 
         }
@@ -195,12 +227,12 @@ class SettingsPage extends Component {
     }
     if(prior === "Prior7"){
         if(this.state.cnt7 %2 ===0){
-            this.state.categoryPriority[this.state.cntPrior]="Relations/Communication"; 
+            this.state.categoryPriority[this.state.cntPrior]=3; 
             document.getElementById(""+this.state.cntPrior).innerHTML= "Relations/Communication ";
             this.state.cnt7Bis = this.state.cntPrior;
             this.state.cntPrior++;
         }else {
-            this.state.categoryPriority[this.state.cnt7Bis]=""; 
+            this.state.categoryPriority[this.state.cnt7Bis]=0; 
             document.getElementById(""+this.state.cnt7Bis).innerHTML= "/";
             this.state.cntPrior = this.state.cnt7Bis; 
         }
@@ -285,8 +317,8 @@ class SettingsPage extends Component {
                 <table class="table_settings">
                     <thead>
                         <tr>
-                           <td className="cel2"><Link to={'/commentary'}><button name="Continue" className="button_settings2">Continuer dernière partie</button></Link></td>
-                           <td className="cel2"><Link to={'/commentary'}><button name="NewGame" className="button_settings2">Commencer nouvelle partie</button></Link></td>
+                           <td className="cel2"><Link to={'/commentary'}><button name="Continue" className="button_settings2" >Continuer dernière partie</button></Link></td>
+                           <td className="cel2"><Link to={'/commentary'}><button name="NewGame" className="button_settings2" onClick={this.handleClick3}>Commencer nouvelle partie</button></Link></td>
                         </tr>
                     </thead>
                 </table>

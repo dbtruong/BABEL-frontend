@@ -16,6 +16,7 @@ class ChildConnexionPage extends Component {
   }
 
   handleClick(){
+    localStorage.setItem("childId",this.state.id); 
     // Uncomment to link with backend
     // this.api.getChildSession(this.state.id)
     //     .then(res => {

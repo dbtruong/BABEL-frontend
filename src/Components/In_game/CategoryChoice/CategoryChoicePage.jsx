@@ -30,10 +30,22 @@ class CategoryChoicePage extends Component {
         }
         this.api = new CategoryChoiceAPI();
         this.handleClick = this.handleClick.bind(this);
+        this.handleClick2 = this.handleClick2.bind(this); 
+        this.sendToBackEnd = this.sendToBackEnd.bind(this); 
     }
+    async sendToBackEnd(categorietab){
+      //let childId = localStorage.getItem("childId"); 
+      let childId = 1; 
+      let gameSessionId = await this.api.getGameSessionId(childId); 
+      for(let i = 1; i <=this.state.categoryPriority.length; i++){
+          this.api.sendCategory(gameSessionId, this.state.categoryPriority[i], i); 
+      }
 
-  
-
+  }
+  handleClick2(e){
+      console.log(this.state.categoryPriority); 
+    this.sendToBackEnd(this.state.categoryPriority); 
+  }
   handleClick(e){
      
     let prior = e.target.name
@@ -42,13 +54,13 @@ class CategoryChoicePage extends Component {
         
         if(this.state.cnt1 %2 ===0){
             
-            this.state.categoryPriority[this.state.cntPrior]="Déplacement";
+            this.state.categoryPriority[this.state.cntPrior]= 5;
             document.getElementById(""+this.state.cntPrior).innerHTML= "Déplacement"; 
             this.state.cnt1Bis = this.state.cntPrior; 
             this.state.cntPrior++;
             
         }else {
-            this.state.categoryPriority[this.state.cnt1Bis]="";
+            this.state.categoryPriority[this.state.cnt1Bis]=0;
             document.getElementById(""+this.state.cnt1Bis).innerHTML= "/";
             this.state.cntPrior = this.state.cnt1Bis; 
         }
@@ -56,12 +68,12 @@ class CategoryChoicePage extends Component {
     }
     if(prior === "Prior2"){
         if(this.state.cnt2 %2 ===0){
-            this.state.categoryPriority[this.state.cntPrior]="Habitation"; 
+            this.state.categoryPriority[this.state.cntPrior]= 4; 
             document.getElementById(""+this.state.cntPrior).innerHTML= "Habitation ";
             this.state.cnt2Bis = this.state.cntPrior;
             this.state.cntPrior++;
         }else {
-            this.state.categoryPriority[this.state.cnt2Bis]="";
+            this.state.categoryPriority[this.state.cnt2Bis]=0;
             document.getElementById(""+this.state.cnt2Bis).innerHTML= "/";
             this.state.cntPrior = this.state.cnt2Bis;  
         }
@@ -69,12 +81,12 @@ class CategoryChoicePage extends Component {
     }
     if(prior === "Prior3"){
         if(this.state.cnt3 %2 ===0){
-            this.state.categoryPriority[this.state.cntPrior]="Loisirs";
+            this.state.categoryPriority[this.state.cntPrior]=7;
             document.getElementById(""+this.state.cntPrior).innerHTML= "Loisirs ";
             this.state.cnt3Bis = this.state.cntPrior;
             this.state.cntPrior++;
         }else {
-            this.state.categoryPriority[this.state.cnt3Bis]="";
+            this.state.categoryPriority[this.state.cnt3Bis]=0;
             document.getElementById(""+this.state.cnt3Bis).innerHTML= "/";
             this.state.cntPrior = this.state.cnt3Bis; 
         }
@@ -82,12 +94,12 @@ class CategoryChoicePage extends Component {
     }
     if(prior === "Prior4"){
         if(this.state.cnt4 %2 ===0){
-            this.state.categoryPriority[this.state.cntPrior]="Nutrition"; 
+            this.state.categoryPriority[this.state.cntPrior]=1; 
             document.getElementById(""+this.state.cntPrior).innerHTML= "Nutrition ";
             this.state.cnt4Bis = this.state.cntPrior;
             this.state.cntPrior++;
         }else {
-            this.state.categoryPriority[this.state.cnt4Bis]=""; 
+            this.state.categoryPriority[this.state.cnt4Bis]=0; 
             document.getElementById(""+this.state.cnt4Bis).innerHTML= "/";
             this.state.cntPrior = this.state.cnt4Bis; 
         }
@@ -96,12 +108,12 @@ class CategoryChoicePage extends Component {
     if(prior === "Prior5"){
         if(this.state.cnt5 %2 ===0){
 
-            this.state.categoryPriority[this.state.cntPrior]="Soins"; 
+            this.state.categoryPriority[this.state.cntPrior]=2; 
             document.getElementById(""+this.state.cntPrior).innerHTML= "Soins ";
             this.state.cnt5Bis = this.state.cntPrior;
             this.state.cntPrior++;
         }else {
-            this.state.categoryPriority[this.state.cnt5Bis]=""; 
+            this.state.categoryPriority[this.state.cnt5Bis]=0; 
             document.getElementById(""+this.state.cnt5Bis).innerHTML= "/";
             this.state.cntPrior = this.state.cnt5Bis; 
         }
@@ -109,12 +121,12 @@ class CategoryChoicePage extends Component {
     }
     if(prior === "Prior6"){
         if(this.state.cnt6 %2 ===0){
-            this.state.categoryPriority[this.state.cntPrior]="Responsabilité"; 
+            this.state.categoryPriority[this.state.cntPrior]=6; 
             document.getElementById(""+this.state.cntPrior).innerHTML= "Responsabilité ";
             this.state.cnt6Bis = this.state.cntPrior; 
             this.state.cntPrior++;
         }else {
-            this.state.categoryPriority[this.state.cnt6Bis]=""; 
+            this.state.categoryPriority[this.state.cnt6Bis]=0; 
             document.getElementById(""+this.state.cnt6Bis).innerHTML= "/";
             this.state.cntPrior = this.state.cnt6Bis; 
         }
@@ -122,12 +134,12 @@ class CategoryChoicePage extends Component {
     }
     if(prior === "Prior7"){
         if(this.state.cnt7 %2 ===0){
-            this.state.categoryPriority[this.state.cntPrior]="Relations/Communication"; 
+            this.state.categoryPriority[this.state.cntPrior]=3; 
             document.getElementById(""+this.state.cntPrior).innerHTML= "Relations/Communication ";
             this.state.cnt7Bis = this.state.cntPrior;
             this.state.cntPrior++;
         }else {
-            this.state.categoryPriority[this.state.cnt7Bis]=""; 
+            this.state.categoryPriority[this.state.cnt7Bis]=0; 
             document.getElementById(""+this.state.cnt7Bis).innerHTML= "/";
             this.state.cntPrior = this.state.cnt7Bis; 
         }
@@ -186,7 +198,7 @@ class CategoryChoicePage extends Component {
             </div>
         
         <div>
-        <Link to={'/sortingTopics'} className="nav-link"><button name="continue" class="category3_button">Continue</button></Link>
+        <Link to={'/sortingTopics'} className="nav-link"><button name="continue" class="category3_button" onClick={this.handleClick2}>Continue</button></Link>
         </div>
         
         </nav>
