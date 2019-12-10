@@ -2,9 +2,9 @@ import axios from "axios";
 
 class MandateAPI{
 
-    sendMandate(childId,instigator,demand,date){
+    async sendMandate(childId,instigator,demand,date){
         let id_mandate; 
-        axios.post('/api/v1/mandates',{
+        await axios.post('/api/v1/mandates',{
         mandate : {
             insert_date : date,
             child_id : childId,
