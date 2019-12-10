@@ -1,11 +1,4 @@
-import API from "./API.js"
-
-class SettingsAPI extends API{
-
-    constructor(){
-        super();
-        this.endpoint = this.url + "/settings";
-    }
+class SettingsAPI{
 
     sendCategory(name){
         //axios.get()
