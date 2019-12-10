@@ -1,11 +1,4 @@
-import API from "./API.js"
-
-class commentaryAPI extends API{
-
-    constructor(){
-        super();
-        this.endpoint = this.url + "/choice";
-    }
+class commentaryAPI{
 
     getHabitsByCategory(id){
         /*axios.get('/getHabitsByCategory?ID='+id)

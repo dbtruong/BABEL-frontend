@@ -1,13 +1,6 @@
-import API from "./API.js"
-import Axios from "axios";
-//import axios from 'axios'
+import axios from "axios";
 
-class choiceAPI extends API{
-
-    constructor(){
-        super();
-        this.endpoint = this.url + "/choice";
-    }
+class choiceAPI{
 
 	getImages(){
         const listImages = [

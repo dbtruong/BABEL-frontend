@@ -26,3 +26,8 @@ html, #root{
     height: 20%!important;
     width: 20%!important;
 }
+
+.wrongCredentials{
+    font-size: 25px;
+    color: red;
+}

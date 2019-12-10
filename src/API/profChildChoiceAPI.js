@@ -1,12 +1,6 @@
-import API from "./API.js"
-//import axios from 'axios'
+import axios from 'axios'
 
-class profChildChoiceAPI extends API{
-
-    constructor(){
-        super();
-        this.endpoint = this.url + "/choice";
-    }
+class profChildChoiceAPI{
 
 	getChildByProf(id){
         /*axios.get('/getChildByProf?ID='+id)

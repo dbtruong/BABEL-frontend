@@ -1,14 +1,7 @@
-import API from "./API.js"
-
-class CategoryChoiceAPI extends API{
-
-    constructor(){
-        super();
-        this.endpoint = this.url + "/categoryChoice";
-    }
+class CategoryChoiceAPI{
 
     sendCategory(name){
-        //axios.get()
+        //axios.get("/url")
         let toSend = {name : name}
         console.log(toSend);
     }
