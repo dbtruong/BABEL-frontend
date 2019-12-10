@@ -19,9 +19,10 @@ class MandatePage extends Component {
 
     async handleClick(e){
         let childid = localStorage.getItem("idChild"); 
-        let date = Date.now(); 
+        let date = null; 
+        
         this.state.comments = document.getElementById('comments').value; 
-        let mandatID = await this.api.sendMandate(1, this.state.instigator,this.state.comments,date);
+        let mandatID = await this.api.sendMandate(childid, this.state.instigator,this.state.comments,date);
         console.log(mandatID); 
         localStorage.setItem("mandatId",mandatID); 
     }
@@ -29,7 +30,6 @@ class MandatePage extends Component {
   render() {
     return (
         <nav>
-            
             <div class="container">
                 <h3>Mandat</h3>
                 <label>Instigateur :</label><br/>
