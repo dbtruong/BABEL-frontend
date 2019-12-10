@@ -9,18 +9,21 @@ class ChildConnexionPage extends Component {
   constructor(){
     super();
     this.state = {
-      id : ""
+      id : "",
+      message: ""
     }
     this.api = new ChildConnectionAPI();
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(){
-    // Uncomment to link with backend
-    // this.api.getChildSession(this.state.id)
-    //     .then(res => {
-    //         console.log(res.data);
-    //     })
+  async handleClick(){
+    let res = await this.api.getChildSession(this.state.id)
+    if (res.length){
+      localStorage.setItem('sessionId', res[0].id)
+      this.props.history.push('/childSummary')
+    } else {
+        this.setState({message : "Identifiant inexistant"})
+    }
   }
 
   render() {
@@ -38,7 +41,8 @@ class ChildConnexionPage extends Component {
                 </input><br/>
           </div>
           <br/>
-          <Link to={'/childSummary'}><Button className="button" onClick={this.handleClick}>Connexion</Button></Link>
+          <Button className="button" onClick={this.handleClick}>Connexion</Button><br/><br/>
+          <p className="wrongCredentials">{this.state.message}</p>
         </nav>
     );
   }

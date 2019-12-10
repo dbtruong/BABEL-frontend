@@ -10,16 +10,23 @@ class ChildSummary extends Component{
         super();
         this.state = {
             listImages : [],
-            date : ""
+            date : "",
+            summary : []
         }
         this.api = new ChildSummaryAPI();
+        this.createSummary = this.createSummary.bind(this);
+    }
+
+    componentDidMount(){
+        this.createSummary();
     }
 
     //Il faudra gérer les différentes catégories en fonction de l'image
-    createSummary(){
+    async createSummary(){
         //Can't seem to use setState somehow
         //this.setState({listImages : this.api.getChildSummary()});
-        let sum = this.api.getChildSummary();
+        let sum = await this.api.getChildSummary();
+        //console.log("resp : ", sum)
         //console.log(sum[0].date)
         this.state.listImages = sum[0].images;
         this.state.date = sum[0].date;
@@ -49,7 +56,8 @@ class ChildSummary extends Component{
             }
             summary.push(<div>{children}</div>)
         }
-        return summary
+        this.setState({summary : summary})
+        return this.state.summary;
     }
     
 
@@ -57,7 +65,7 @@ class ChildSummary extends Component{
         return(
             <div className="container">
                 <h1>Synthèse de l'enfant</h1><br/>
-                {this.createSummary()}<br/>
+                {this.state.summary}<br/>
                 <h2>Séance du  {this.state.date}</h2>
                 <Link to={"/start"}><img src="Images/next.png"/></Link>
             </div>
