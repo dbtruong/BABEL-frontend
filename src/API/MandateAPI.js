@@ -7,9 +7,9 @@ class MandateAPI{
         axios.post('/api/v1/mandates',{
         mandate : {
             insert_date : date,
-            child_id : 9,
-            instigator : "dave",
-            demand : "youlou youlou"
+            child_id : childId,
+            instigator : instigator,
+            demand : demand
         } 
        })
        .then(response => {id_mandate = response.data.id})
