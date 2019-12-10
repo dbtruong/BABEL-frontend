@@ -3,7 +3,7 @@ import axios from 'axios'
 class profChildChoiceAPI{
 
 	getChildByProf(id){
-        /*axios.get('/getChildByProf?ID='+id)
+        axios.get('/api/v1/professionals_to_children/listChildren/1',{id : id})
         .then(function (response) {
             return new Map(JSON.parse(response))
         })
@@ -13,7 +13,7 @@ class profChildChoiceAPI{
         })
         .finally(function () {
             // always executed
-        });*/
+        });
         var child1 = new Map();
         child1.set("id", "01");
         child1.set("picture", "jules.jpg");
