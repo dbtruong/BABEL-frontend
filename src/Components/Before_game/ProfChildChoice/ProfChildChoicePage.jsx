@@ -9,44 +9,60 @@ class ProfChildChoicePage extends Component {
   constructor(){
     super();
     this.api = new profChildChoiceAPI();
+    this.state = {
+      posts : "",
+      id : 12
+    }
     this.imagePath = "Images/"
-    this.id = 1;
+    this.listChildren = this.listChildren.bind(this);
+    this.select = this.select.bind(this);
+    //this.listChild= this.getChildren(this.id);  
   }
 
-  listChildren(children){
-    return children.map((child) =>
-      <div className="row justify-content-center" key={""+child.get("id")}>
-        <div className="col-sm-2">
-          <img src={this.imagePath+child.get("picture")} alt="photo enfant" className="Logo"/>
+  componentDidMount() {
+    this.listChildren();
+  }
+
+  async listChildren(){
+    //console.log(children);
+    let data = await this.api.getChildByProf(this.state.id);
+    console.log("oui", data)
+    this.setState({
+      posts : data.map((child) =>
+        <div onClick={e => this.select(child.get("id"))} className="row justify-content-center" key={""+child.get("id")}>
+          <div className="col-sm-2">
+            <img src={this.imagePath+child.get("picture")} alt="photo enfant" className="Logo"/>
+          </div>
+          <div className="col-sm-4">
+            {child.get("id")}
+            <br/>
+            {child.get("lastName")} {child.get("firstName")}
+            <br/>
+            {child.get("birthday")}
+            <br/>
+            {child.get("handicap")}
+          </div>
+          <br/>
         </div>
-        <div className="col-sm-4">
-           {child.get("id")}
-          <br/>
-          {child.get("lastName")} {child.get("firstName")}
-          <br/>
-          {child.get("birthday")}
-          <br/>
-          {child.get("handicap")}
-        </div>
-        <br/>
-      </div>
-    );
+      )
+    });
+  }
+
+  select(id){
+    localStorage.setItem("idChild", id);
   }
 
   render() {
     return (
         <nav className="container">
           <Link to={'/'}><img src="Images/logo.png" alt="logo esope" className="Logo"/></Link><br/>
-          
-          {this.listChildren(this.api.getChildByProf(this.id))}
+          <h4>Selectionnez un enfant :</h4>
+          {this.state.posts}
           
           <br/>
           <div className="row justify-content-center">
             <div className="col-sm-4">
                <Link to={'/newChild'}><Button className="button">Introduire un nouvel enfant</Button></Link>
-            </div>
-            <div className="col-sm-4">
-              <Link to={'/settings'}><Button className="button">Selectionner</Button></Link>
             </div>
           </div>
         </nav>
