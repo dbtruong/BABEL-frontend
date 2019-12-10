@@ -15,7 +15,7 @@ class LoginPage extends Component{
             redirection : "/",
             message : ""
         }
-        if (localStorage.getItem('role') == 'parent'){
+        if (localStorage.getItem('role') === 'parent'){
             this.state.redirection = "/childSummary"
         } else {
             this.state.redirection = "/profChildChoice"

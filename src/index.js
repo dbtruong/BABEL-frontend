@@ -21,6 +21,7 @@ import ChoiceLike from './Components/In_game/ChoicePages/ChoiceLike.jsx';
 import ChoiceHelp from './Components/In_game/ChoicePages/ChoiceHelp.jsx';
 import ChoiceHappy from './Components/In_game/ChoicePages/ChoiceHappy.jsx';
 import CommentaryPage from './Components/In_game/Commentary/CommentaryPage.jsx';
+import MandatePage from './Components/Before_game/Mandate/MandatePage.jsx'; 
 
 var hist = createBrowserHistory();
 
@@ -41,6 +42,7 @@ ReactDOM.render(<Router history={hist}>
       <Route path="/summary" component={SummaryPage}/>
       <Route path="/settings" component={SettingsPage}/>
       <Route path="/commentary" component={CommentaryPage}/>
+      <Route path="/mandate" component={MandatePage}/>
     </Switch>
   </Router>, document.getElementById('root'));
 
