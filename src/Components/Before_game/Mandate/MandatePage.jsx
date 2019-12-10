@@ -44,7 +44,7 @@ class MandatePage extends Component {
                 <label>Demande :</label><br/>
                 <textarea id="comments" rows="5" cols="40">
                 </textarea><br/><br/>
-                <Link to={'/commentary'} className="nav-link"><button 
+                <Link to={'/settings'} className="nav-link"><button 
                     className="button_mandat"
                     onClick={this.handleClick}>
                     Envoyer Mandat
