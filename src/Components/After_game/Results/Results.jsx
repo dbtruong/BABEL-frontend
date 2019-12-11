@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
-import Button from 'react-bootstrap/Button';
 
 import ResultAPI from '../../../API/ResultAPI.js'
 
@@ -56,6 +55,7 @@ class Result extends Component{
     render(){
         return(
             <div className="container">
+                <Link to={'/'}><img src="Images/logo.png" alt="logo esope" className="imgLogo"/></Link><br/>
                 <h1>Résultat du jeu</h1><br/><br/>
                 {this.state.summary}<br/>
             </div>
