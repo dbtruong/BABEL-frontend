@@ -7,13 +7,26 @@ class commentaryPage extends Component{
 
     constructor(){
         super();
+        this.state = {
+            id : localStorage.getItem("tabPriorCategory"),
+            posts : ""
+        }
         this.api = new commentaryAPI();
         this.imagePath = "Images/"
-        this.id = 1;
+        this.getCurrentCategory = this.commentaries.bind(this);
     }
 
-    commentaries(habits){
-        return habits.map((habit)=>
+    componentDidMount(){
+        this.commentaries();
+    }
+
+    async commentaries(){
+        let data = [];
+        this.state.id.forEach(function(id){
+            data.push(this.api.getHabitsByCategory(id));
+        });
+        this.setState({
+            posts : data.map((habit)=>
             <div className="row justify-content-center habit" key = {""+habit.get("id")}>
                 <div className="col-sm-2">
                     <img src={this.imagePath+habit.get("picture")} alt={habit.get("nom")} className="Logo"/>
@@ -23,13 +36,14 @@ class commentaryPage extends Component{
                 </div>
                 <button className="button">Valider</button>
             </div>
-        );
+            )
+        });
     }
 
     render(){
         return(
             <div>
-                {this.commentaries(this.api.getHabitsByCategory(this.id))}
+                {this.state.posts}
                 <Link to={'/summary'}><button className="button">Tout confirmer</button></Link>
             </div>
         );

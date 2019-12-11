@@ -1,9 +1,17 @@
+import axios from 'axios'
+
 class commentaryAPI{
 
-    getHabitsByCategory(id){
-        /*axios.get('/getHabitsByCategory?ID='+id)
+    async getHabitsByCategory(id){
+        var habits = [];
+        await axios.post('/api/v1/categories/allPictures/', {id:id})
         .then(function (response) {
-            return new Map(JSON.parse(response))
+            response.data.array.forEach(function(element){
+                var habit = new Map();
+                habit.set("id", element.id);
+                habit.set("picture", element.path)
+                habits.push(habit);
+            });
         })
         .catch(function (error) {
             // handle error
@@ -11,15 +19,9 @@ class commentaryAPI{
         })
         .finally(function () {
             // always executed
-        });*/
-        var hab1 = new Map();
-        hab1.set("id", "01");
-        hab1.set("picture", "toilette.jpg");
-        hab1.set("nom", "toilette");
-        hab1.set("description", "habilité à se couler un bronze seul")
-        var hab2 = hab1;
-        hab2.set("id", "02");
-        return [hab1, hab2];
+        });
+        
+        return habits;
     }
 }
 

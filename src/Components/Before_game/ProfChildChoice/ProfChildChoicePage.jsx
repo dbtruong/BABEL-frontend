@@ -11,7 +11,7 @@ class ProfChildChoicePage extends Component {
     this.api = new profChildChoiceAPI();
     this.state = {
       posts : "",
-      id : 12
+      id : localStorage.getItem("sessionId")
     }
     this.imagePath = "Images/"
     this.listChildren = this.listChildren.bind(this);
