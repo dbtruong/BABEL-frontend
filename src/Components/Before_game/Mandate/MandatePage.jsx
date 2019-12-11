@@ -15,6 +15,8 @@ class MandatePage extends Component {
         }
         this.api = new MandateAPI();
         this.handleClick = this.handleClick.bind(this);
+        this.state.childId = localStorage.getItem("idChild"); 
+       
     }
 
     async handleClick(e){
@@ -35,6 +37,9 @@ class MandatePage extends Component {
         <nav>
             <div class="container">
                 <h3>Mandat</h3>
+                <br/>
+                <h5 class="childid">Id de l'enfant : {this.state.childId}</h5>
+                <br/>
                 <label>Instigateur :</label><br/>
                 <input 
                     type="text"

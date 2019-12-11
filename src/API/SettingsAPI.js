@@ -1,8 +1,15 @@
 import axios from "axios";
 class SettingsAPI{
 
-    updateCategory(gameSessionId,categoryId,sorting){
-        axios.put('/api/v1/selected_categories',{
+    async loadCategories(category){
+        let categories; 
+        await axios.post('/api/v1/selected_categories/choosenCategories/'+category)
+        .then(response => {categories = response.data})
+        return categories; 
+    }
+
+    updateCategory(selectedCatId,gameSessionId,categoryId,sorting){
+        axios.put('/api/v1/selected_categories/'+selectedCatId,{
             selected_category: {
                 sorting : sorting,
                 status : false, 
@@ -11,19 +18,15 @@ class SettingsAPI{
             }
         }).catch(error => console.log(error))
     }
-    async getGameSession(gameSessionId){
+    async getGameSession(childId){
         let gameSession; 
-       await axios.put('/api/v1/game_sessions',{
-            game_session: {
-                id : gameSessionId
-            }
-        }).then(response => {gameSession = response.data})
+       await axios.post('/api/v1/game_sessions/getgameforchild/'+childId)
+       .then(response => {gameSession = response.data})
         return gameSession;
     }
     setStep(gameSessionId,start_date,guardian_comment,prof_comment,step_one,step_two,step_three,finished_state,version,child_id,user_id,mandate_id){
-        axios.put('/api/v1/game_sessions',{
+        axios.put('/api/v1/game_sessions/'+gameSessionId,{
             game_session: {
-                id : gameSessionId,
                 start_date : start_date,
                 guardian_comment : guardian_comment,
                 prof_comment : prof_comment,
@@ -39,9 +42,8 @@ class SettingsAPI{
         }).catch(error => console.log(error))
     }
     updateChildSession(gameSessionId,start_date,guardian_comment,prof_comment,step_one,step_two,step_three,finished_state,version,child_id,user_id,mandate_id){
-        axios.put('/api/v1/game_sessions',{
+        axios.put('/api/v1/game_sessions/'+gameSessionId,{
             game_session: {
-                id : gameSessionId,
                 start_date : start_date,
                 guardian_comment : guardian_comment,
                 prof_comment : prof_comment,

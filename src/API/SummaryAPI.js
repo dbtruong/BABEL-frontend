@@ -2,13 +2,9 @@ import axios from "axios";
 class SummaryAPI {
 
    
-    loadSessions(childId){
+    async loadSessions(childId){
         let gameSessions; 
-        axios.post('/api/v1/game_sessions',{
-            game_session : {
-                child_id : childId
-            }
-        })
+        await axios.post('/api/v1/game_sessions/allDate/'+childId)
         .then(response => {gameSessions = response.data})
         .catch(error => console.log(error))
         return gameSessions; 
@@ -44,9 +40,8 @@ class SummaryAPI {
         return gameSession;
     }
     updateChildSession(gameSessionId,start_date,guardian_comment,prof_comment,step_one,step_two,step_three,finished_state,version,child_id,user_id,mandate_id){
-        axios.put('/api/v1/game_sessions',{
+        axios.put('/api/v1/game_sessions/'+gameSessionId,{
             game_session: {
-                id : gameSessionId,
                 start_date : start_date,
                 guardian_comment : guardian_comment,
                 prof_comment : prof_comment,

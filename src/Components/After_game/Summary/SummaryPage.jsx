@@ -14,6 +14,8 @@ class SummaryPage extends Component {
             happy : 0,
             SessionDate : "",
             SessionDates : [],
+            sessions : [],
+            Session : "", 
             Summary : []
 
         }
@@ -30,23 +32,34 @@ class SummaryPage extends Component {
         this.resume = this.resume.bind(this); 
         
     }
+    componentDidMount(){
+        this.createSelect(); 
+    }
 
-    createSelect(){
-        let sessions = []; 
+    async createSelect(){
         
-        for (let i =0; i < this.state.SessionDates.length; i++){
-            sessions.push(<option key={this.state.SessionDates[i].id} value={this.state.SessionDates[i].id}> {this.state.SessionDates[i].session} </option>)
-        }
-        /*this.setState({
-            SessionDates: sessions
-          });*/
-        
-          return sessions; 
+        //let childId = localStorage.getItem("childId"); 
+        let childId = 1; 
+        this.state.sessions = await this.api.loadSessions(childId); 
+        console.log(this.state.sessions.id);
+        console.log(this.state.sessions.length);
 
+       /* let children = []
+        this.state.sessions.map((ses) => (
+            children.push(<option key={ses.id}> {ses.start_date}</option>)
+            )) ;
+        
+       //if(this.state.sessions.length <1){
+         this.setState({
+            SessionDates: children
+          });
+       /* }else {
+            this.setState({Session : <option key={this.state.sessions.id} value={this.state.sessions.id}></option>});
+        }*/
     }
     handleChange(e){
         this.setState({value: e.target.value});
-        //localStorage.setItem("GameSessionChosen",e.target.value); 
+        localStorage.setItem("GameSessionChosen",e.target.value); 
     }
    async handleClick5(e){
        let gameSessionId = localStorage.getItem("GameSessionChosen"); 
@@ -204,7 +217,8 @@ class SummaryPage extends Component {
             <div>
                 <h5>Choisissez la date de session</h5>
                 <select onChange={this.handleChange}> 
-                 {this.createSelect()}
+                 {this.state.sessions}
+                 {this.state.Session}
                 </select>
                 <button class="button_sum">Confirmer</button>
             </div>

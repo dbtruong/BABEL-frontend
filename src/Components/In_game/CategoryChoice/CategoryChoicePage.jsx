@@ -37,8 +37,12 @@ class CategoryChoicePage extends Component {
       //let childId = localStorage.getItem("childId"); 
       let childId = 1; 
       let gameSessionId = await this.api.getGameSessionId(childId); 
-      for(let i = 1; i <=this.state.categoryPriority.length; i++){
-          this.api.sendCategory(gameSessionId, this.state.categoryPriority[i], i); 
+      console.log(gameSessionId); 
+      
+      for(let i = 0; i <this.state.categoryPriority.length; i++){
+            console.log(this.state.categoryPriority[i]);
+            console.log(i)
+          this.api.sendCategory(gameSessionId, this.state.categoryPriority[i], i+1); 
       }
 
   }
@@ -180,6 +184,9 @@ class CategoryChoicePage extends Component {
                     
                 </thead>
             </table>
+            <div>
+            <button name="Prior7" class="category2_button" onClick={this.handleClick}>Relations/Communication</button>
+            </div>
         </div>
         <br/>
         <div>
