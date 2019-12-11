@@ -26,6 +26,7 @@ class SummaryPage extends Component {
         this.handleClick2 = this.handleClick2.bind(this); 
         this.handleClick3 = this.handleClick3.bind(this);
         this.handleClick4 = this.handleClick4.bind(this);
+        this.handleClick5 = this.handleClick5.bind(this); 
         this.resume = this.resume.bind(this); 
         
     }
@@ -46,6 +47,12 @@ class SummaryPage extends Component {
     handleChange(e){
         this.setState({value: e.target.value});
         //localStorage.setItem("GameSessionChosen",e.target.value); 
+    }
+   async handleClick5(e){
+       let gameSessionId = localStorage.getItem("GameSessionChosen"); 
+       let gamesession = await this.api.getGameSession(gameSessionId); 
+       let elem = document.getElementById("comments");
+       this.api.updateChildSession(gameSession.id,gameSession.start_date,elem.target.value, gameSession.prof_comment, gameSession.step_one, gameSession.step_two, gameSession.step_three, gameSession.finished_state, gameSession.version, gameSession.child_id, gameSession.user_id, gameSession.mandate_id);
     }
 
     handleClick2(e){
@@ -279,7 +286,7 @@ class SummaryPage extends Component {
 
                 </textarea>
                 <br/>
-                <button class="button_settings5">Commenter</button>
+                <button class="button_settings5" onclick={}>Commenter</button>
             </div>
             <br/>
         </nav>

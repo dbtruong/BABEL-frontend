@@ -60,11 +60,12 @@ class SettingsPage extends Component {
   handleClick3(e){
     this.sendToBackEnd(this.state.categoryPriority);
   }
-  async handleClick4(e){
+  // très inutile
+  /*async handleClick4(e){
       let childId = localStorage.getItem("childId"); 
       let lastSession = await this.api.loadlastSession(childId); 
       this.api.updateChildSession(lastSession.id,lastSession.start_date,lastSession.guardian_comment, lastSession.prof_comment, lastSession.step_one, lastSession.step_two, lastSession.step_three, lastSession.finished_state, lastSession.version, lastSession.child_id, lastSession.user_id, lastSession.mandate_id); 
-  }
+  }*/
   handleClick(e){
     // 1 Love - Help - Happy
     // 2 Love - Happy - Help

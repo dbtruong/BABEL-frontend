@@ -34,6 +34,33 @@ class SummaryAPI {
         .catch(error => console.log(error))
         return picture;
     }
+    async getGameSession(gameSessionId){
+        let gameSession; 
+       await axios.put('/api/v1/game_sessions',{
+            game_session: {
+                id : gameSessionId
+            }
+        }).then(response => {gameSession = response.data})
+        return gameSession;
+    }
+    updateChildSession(gameSessionId,start_date,guardian_comment,prof_comment,step_one,step_two,step_three,finished_state,version,child_id,user_id,mandate_id){
+        axios.put('/api/v1/game_sessions',{
+            game_session: {
+                id : gameSessionId,
+                start_date : start_date,
+                guardian_comment : guardian_comment,
+                prof_comment : prof_comment,
+                step_one : step_one,
+                step_two : step_two,
+                step_three : step_three,
+                finished_state : finished_state,
+                version : version,
+                child_id : child_id,
+                user_id : user_id,
+                mandate_id : mandate_id
+            }
+        }).catch(error => console.log(error))
+    }
 }
 
 export default SummaryAPI;
