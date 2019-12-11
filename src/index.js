@@ -24,6 +24,7 @@ import CommentaryPage from './Components/In_game/Commentary/CommentaryPage.jsx';
 import MandatePage from './Components/Before_game/Mandate/MandatePage.jsx'; 
 import NewChild from './Components/Before_game/ProfChildChoice/NewChild.jsx';
 import ResultPage from './Components/After_game/Results/Results.jsx';
+import WaitingPage from './Components/Before_game/waiting/WaintingPage.jsx';
 
 var hist = createBrowserHistory();
 
@@ -47,6 +48,7 @@ ReactDOM.render(<Router history={hist}>
       <Route path="/mandate" component={MandatePage}/>
       <Route path="/newChild" component={NewChild}/>
       <Route path="/result" component={ResultPage}/>
+      <Route path="/waiting" component={WaitingPage}/>
     </Switch>
   </Router>, document.getElementById('root'));
 
