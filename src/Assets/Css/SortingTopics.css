@@ -1,0 +1,12 @@
+.container {
+    text-align: center;
+    font-family: 'Inkfree';
+  }
+
+.habits {
+    width: 20%;
+}
+
+h1 {
+    text-decoration: underline;
+}

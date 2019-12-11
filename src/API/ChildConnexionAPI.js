@@ -3,7 +3,7 @@ import axios from 'axios'
 class ChildConnexionAPI{
 
 	async getChildSession(id){
-        if (isNaN(id) || id == ""){
+        if (isNaN(id) || id === ""){
             id = 0
         }
         let response;

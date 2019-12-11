@@ -13,7 +13,7 @@ import ChildSummary from './Components/Before_game/ChildSummary/ChildSummary.jsx
 import ChildConnexionPage from './Components/Before_game/ChildConnexion/ChildConnexionPage.jsx';
 import StartPage from './Components/Before_game/Start/StartPage.jsx';
 import CategoryChoicePage from './Components/In_game/CategoryChoice/CategoryChoicePage.jsx'; 
-import SortingTopicsPage from './Components/In_game/SortingTopicsPage/SortingTopicsPage.jsx'; 
+import SortingTopics from './Components/In_game/SortingTopicsPage/SortingTopics.jsx'; 
 import ProfChildChoicePage from './Components/Before_game/ProfChildChoice/ProfChildChoicePage.jsx';
 import SummaryPage from './Components/After_game/Summary/SummaryPage.jsx'; 
 import SettingsPage from './Components/Before_game/Settings/SettingsPage.jsx'; 
@@ -37,7 +37,7 @@ ReactDOM.render(<Router history={hist}>
       <Route path="/choiceLike" component={ChoiceLike} />
       <Route path="/choiceHelp" component={ChoiceHelp} />
       <Route path="/choiceHappy" component={ChoiceHappy} />
-      <Route path="/sortingTopics" component={SortingTopicsPage}/>
+      <Route path="/sortingTopics" component={SortingTopics}/>
       <Route path="/profChildChoice" component={ProfChildChoicePage}/>
       <Route path="/summary" component={SummaryPage}/>
       <Route path="/settings" component={SettingsPage}/>
