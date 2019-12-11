@@ -14,33 +14,58 @@ class SummaryPage extends Component {
             happy : 0,
             SessionDate : "",
             SessionDates : [],
+            sessions : [],
+            Session : "", 
+            Summary : []
 
         }
         this.api = new SummaryAPI();
         //this.state.SessionDates = this.api.loadSessions(); 
+        //this.state.Summary = this.api.loadSummary(); 
+        
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.handleClick2 = this.handleClick2.bind(this); 
         this.handleClick3 = this.handleClick3.bind(this);
         this.handleClick4 = this.handleClick4.bind(this);
+        this.handleClick5 = this.handleClick5.bind(this); 
+        this.resume = this.resume.bind(this); 
         
     }
+    componentDidMount(){
+        this.createSelect(); 
+    }
 
-    createSelect(){
-        let sessions = []; 
+    async createSelect(){
         
-        for (let i =0; i < this.state.SessionDates.length; i++){
-            sessions.push(<option key={this.state.SessionDates[i].id} value={this.state.SessionDates[i].id}> {this.state.SessionDates[i].session} </option>)
-        }
-        /*this.setState({
-            SessionDates: sessions
-          });*/
-        
-          return sessions; 
+        //let childId = localStorage.getItem("childId"); 
+        let childId = 1; 
+        this.state.sessions = await this.api.loadSessions(childId); 
+        console.log(this.state.sessions.id);
+        console.log(this.state.sessions.length);
 
+       /* let children = []
+        this.state.sessions.map((ses) => (
+            children.push(<option key={ses.id}> {ses.start_date}</option>)
+            )) ;
+        
+       //if(this.state.sessions.length <1){
+         this.setState({
+            SessionDates: children
+          });
+       /* }else {
+            this.setState({Session : <option key={this.state.sessions.id} value={this.state.sessions.id}></option>});
+        }*/
     }
     handleChange(e){
         this.setState({value: e.target.value});
+        localStorage.setItem("GameSessionChosen",e.target.value); 
+    }
+   async handleClick5(e){
+       let gameSessionId = localStorage.getItem("GameSessionChosen"); 
+       let gameSession = await this.api.getGameSession(gameSessionId); 
+       let elem = document.getElementById("comments");
+       this.api.updateChildSession(gameSession.id,gameSession.start_date,elem.target.value, gameSession.prof_comment, gameSession.step_one, gameSession.step_two, gameSession.step_three, gameSession.finished_state, gameSession.version, gameSession.child_id, gameSession.user_id, gameSession.mandate_id);
     }
 
     handleClick2(e){
@@ -164,18 +189,26 @@ class SummaryPage extends Component {
             }
         }   
     }
+    
 
-    resume(habits){
-        return habits.map((habit)=>
-        <tr>
-            <td><img src={this.imagePath+habit.get("picture")} alt={habit.get("id")}/></td>
-            <td>{this.getHabit(habit)}</td>
-            <td>{this.getHabit(habit)}</td>
-            <td>{this.getHabit(habit)}</td> 
-        </tr>
-        );
+   async resume(){
+        let habits = this.state.Summary; 
+        let summary = []; 
+        for(let i =0; i < habits.length ; i++){
+             let picture = await this.api.loadPicture(habits[i].picture_id); 
+            summary.push(<td><img src={picture.path} alt={picture.id}/></td>)
+            summary.push(<td>{this.gethabit(habits.do_like)}</td>)
+            summary.push(<td>{this.getHabit(habits.is_autonomous)}</td>) 
+            summary.push(<td>{this.getHabit(habits.is_happy)}</td>)
+            
+        }
+        return summary; 
+        
         //{this.resume(this.api.getHabits())}
     }
+    
+        
+    
 
     render() {
     return (
@@ -184,7 +217,8 @@ class SummaryPage extends Component {
             <div>
                 <h5>Choisissez la date de session</h5>
                 <select onChange={this.handleChange}> 
-                 {this.createSelect()}
+                 {this.state.sessions}
+                 {this.state.Session}
                 </select>
                 <button class="button_sum">Confirmer</button>
             </div>
@@ -253,7 +287,9 @@ class SummaryPage extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        <tr>
+                            
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -264,7 +300,7 @@ class SummaryPage extends Component {
 
                 </textarea>
                 <br/>
-                <button class="button_settings5">Commenter</button>
+                <button class="button_settings5" onclick={this.handleClick5}>Commenter</button>
             </div>
             <br/>
         </nav>

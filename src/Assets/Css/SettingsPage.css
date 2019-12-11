@@ -43,6 +43,13 @@
     width: 20%; 
     height: 80%; 
 }
+.button_settings6 {
+    background-color: #7dbdfd;
+    border-color: #0000ff;
+    width: 40%; 
+    height: 80%; 
+}
+
 .div_order2{
     padding-top: 6px;
     height : 50%

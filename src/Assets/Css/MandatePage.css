@@ -4,3 +4,9 @@
     width : 20%;
     height: 50%; 
 }
+.childid {
+    border-bottom: solid; 
+    border-bottom-color:red ; 
+    width : 40%; 
+    margin: 0 auto; 
+}

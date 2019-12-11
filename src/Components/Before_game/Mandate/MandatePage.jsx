@@ -15,16 +15,21 @@ class MandatePage extends Component {
         }
         this.api = new MandateAPI();
         this.handleClick = this.handleClick.bind(this);
+        this.state.childId = localStorage.getItem("idChild"); 
+       
     }
 
     async handleClick(e){
-        let childid = localStorage.getItem("idChild"); 
+        let childId = localStorage.getItem("idChild");
+        let userId = localStorage.getItem("sessionId");  
         let date = null; 
         
         this.state.comments = document.getElementById('comments').value; 
-        let mandatID = await this.api.sendMandate(childid, this.state.instigator,this.state.comments,date);
-        console.log(mandatID); 
-        localStorage.setItem("mandatId",mandatID); 
+        let mandatId = await this.api.sendMandate(childId, this.state.instigator,this.state.comments,date);
+        this.api.createGame(1,1,1); 
+        let gameSessionId = this.api.createGame(childId,userId,mandatId)
+        localStorage.setItem("mandatId",mandatId); 
+        localStorage.setItem("gameSessionId",gameSessionId); 
     }
 
   render() {
@@ -32,6 +37,9 @@ class MandatePage extends Component {
         <nav>
             <div class="container">
                 <h3>Mandat</h3>
+                <br/>
+                <h5 class="childid">Id de l'enfant : {this.state.childId}</h5>
+                <br/>
                 <label>Instigateur :</label><br/>
                 <input 
                     type="text"
