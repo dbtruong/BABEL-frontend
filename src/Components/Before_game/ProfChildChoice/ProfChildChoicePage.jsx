@@ -56,14 +56,14 @@ class ProfChildChoicePage extends Component {
     return (
         <nav className="container">
           <Link to={'/'}><img src="Images/logo.png" alt="logo esope" className="Logo"/></Link><br/>
-          <h4>Selectionnez un enfant :</h4>
+          <h4>Entrez les informations :</h4>
           {this.state.posts}
           
           <br/>
-          <div className="row justify-content-center">
-            <div className="col-sm-4">
-               <Link to={'/newChild'}><Button className="button">Introduire un nouvel enfant</Button></Link>
-            </div>
+          <div>
+
+              <Link to={'/newChild'}><Button className="button" class="btn btn-primary btn-lg">Introduire un nouvel enfant</Button></Link>
+            
           </div>
         </nav>
     );
