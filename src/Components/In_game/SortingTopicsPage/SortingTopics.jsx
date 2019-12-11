@@ -12,7 +12,8 @@ class SortingTopics extends Component {
             listImages : [],
             indexCat : 0,
             indexImg : 0,
-            array : []
+            array : [],
+            currentCat : ""
         }
 		this.api = new SortingTopicsAPI();
         this.handleClick = this.handleClick.bind(this);
@@ -20,10 +21,11 @@ class SortingTopics extends Component {
   
     handleClick(e){
         if (e.target.className === "button btn btn-primary"){
-            console.log(this.state.array)
-            localStorage.setItem("chosenPictures", this.state.array)
+            localStorage.setItem("chosenPictures", JSON.stringify(this.state.array))
         } else {
-            this.state.array.push(e.target.alt)
+            let temp = e.target.src.split('/');
+            console.log(temp);
+            this.state.array.push({"name" : temp[4] + "/" + temp[5], "desc": e.target.alt})
             e.target.style.display = "none";
         }
     }
@@ -34,9 +36,9 @@ class SortingTopics extends Component {
         let toReturn = []
         let length, name;
         for(let j = 0; j < categories.length; j++){
-            let currentCat = categories[j];
+            this.state.currentCat = categories[j];
             this.state.indexImg = 0;
-            switch(currentCat){
+            switch(this.state.currentCat){
                 case "deplacements":
                     length = 5
                     this.state.indexCat = 0;
@@ -75,8 +77,8 @@ class SortingTopics extends Component {
             }
             toReturn.push(<h1>{name}</h1>)
             for(let i = 0; i < length; i++){
-                let path = "Images/"+currentCat+"/"+allImages[this.state.indexCat][this.state.indexImg].name+".jpg";
-                let desc = allImages[this.state.indexCat][this.state.indexImg].name;
+                let path = "Images/"+this.state.currentCat+"/"+allImages[this.state.indexCat][this.state.indexImg].name+".jpg";
+                let desc = allImages[this.state.indexCat][this.state.indexImg].desc;
                 toReturn.push(<img className="habits" src={path} alt={desc} onClick={this.handleClick}/>)
                 if(this.state.indexImg <= length){
                     this.state.indexImg += 1;

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom'
 import '../../../Assets/Css/ChoicePage.css';
 import choiceAPI from '../../../API/choiceAPI.js'
 import Button from 'react-bootstrap/Button'
@@ -12,34 +11,34 @@ class ChoiceHelp extends Component {
 			listImages : [],
 			currentImg : "",
 			currentDesc : "",
-			indexCat : 0,
-			indexImg : 0
+			index : 0,
+			array : []
 		}
 		this.api = new choiceAPI();
-		this.state.listImages = this.api.getImages();
-		this.state.currentImg = "Images/deplacements/" + this.state.listImages[this.state.indexCat][this.state.indexImg].name + ".jpg";
-		this.state.currentDesc = this.state.listImages[this.state.indexCat][this.state.indexImg].desc;
+		let temp = JSON.parse(localStorage.getItem('chosenPictures'));
+		this.state.listImages = temp;
+		this.state.currentImg = "Images/" + temp[0].name;
+		this.state.currentDesc = temp[0].desc;
+		//console.log(temp);
 		this.handleClick = this.handleClick.bind(this);
 	}
 
 	handleClick(e){
-		this.api.sendImage(this.state.listImages[this.state.indexCat][this.state.indexImg].name, e.target.name);
-		const catName = ["deplacements", "habitation", "loisirs", "nutrition", "relationscom", "responsabilites", "soinspersonnels"]
-		const nbImages = [5,7,4,7,3,1,17]
-		let tempImg = this.state.indexImg + 1;
-		let tempCat = this.state.indexCat + 1;
-		if (tempImg >= nbImages[this.state.indexCat]){
-			this.state.indexCat = tempCat;
-			tempImg = 0;
-			this.state.indexImg = tempImg;
-		}
-		this.state.indexImg = tempImg;
-		this.setState({
-			currentImg : 
-			"Images/" + catName[this.state.indexCat] + "/" + this.state.listImages[this.state.indexCat][this.state.indexImg].name + ".jpg",
-			currentDesc :
-			this.state.listImages[this.state.indexCat][this.state.indexImg].desc
-		})
+		this.state.index += 1;
+		if (this.state.index >= this.state.listImages.length){
+			this.state.array.push({
+				"name" : "Images/" + this.state.listImages[this.state.index-1].name,
+				"res" : e.target.name
+			})
+			localStorage.setItem('picturesHelp', JSON.stringify(this.state.array))
+			this.props.history.push("/choiceHappy")
+		} else {
+			this.setState({
+				currentImg : "Images/" + this.state.listImages[this.state.index].name,
+				currentDesc : this.state.listImages[this.state.index].desc
+			})
+			this.state.array.push({"name" : this.state.currentImg, "res" : e.target.name})
+		}		
 	}
 
 	render(){
@@ -61,8 +60,6 @@ class ChoiceHelp extends Component {
 					<input name="help" className="imgButton" type="image" src="Images/help.png" alt="j'ai besoin d'aide"/>
 				</button>
 			</div>
-
-			<Link to={'/choiceHappy'}><Button className="next">Aller à la page suivante</Button></Link>
 		</div>
 		);
 	}

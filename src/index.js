@@ -23,6 +23,7 @@ import ChoiceHappy from './Components/In_game/ChoicePages/ChoiceHappy.jsx';
 import CommentaryPage from './Components/In_game/Commentary/CommentaryPage.jsx';
 import MandatePage from './Components/Before_game/Mandate/MandatePage.jsx'; 
 import NewChild from './Components/Before_game/ProfChildChoice/NewChild.jsx';
+import ResultPage from './Components/After_game/Results/Results.jsx';
 
 var hist = createBrowserHistory();
 
@@ -45,6 +46,7 @@ ReactDOM.render(<Router history={hist}>
       <Route path="/commentary" component={CommentaryPage}/>
       <Route path="/mandate" component={MandatePage}/>
       <Route path="/newChild" component={NewChild}/>
+      <Route path="/result" component={ResultPage}/>
     </Switch>
   </Router>, document.getElementById('root'));
 
