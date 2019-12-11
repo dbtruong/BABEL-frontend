@@ -1,40 +1,38 @@
-
-
+import axios from "axios";
 class SummaryAPI {
 
    
-
-    sendCategory(name){
-        //axios.get()
-        let toSend = {name : name}
-        console.log(toSend);
-    }
-    loadSessions(){
-        //axios.get()
-    }
-    getHabits(){
-        // const response = await axios.get(this.endpoint);
-        // console.log(response.data);
-        // return response.data;
-
-        //response doit être un json qui contient images et un attribut date
-        let summary = [
-            {date : "3 décembre 2019",
-            images : [
-                { name : "bus", like : true, help : true, happy : false},
-                { name : "marcher", like : true, help : false, happy : false},
-                { name : "velo", like : false, help : true, happy : false}
-            ]
+    loadSessions(childId){
+        let gameSessions; 
+        axios.post('/api/v1/game_sessions',{
+            game_session : {
+                child_id : childId
             }
-        ]
-        // let date = {date : "3 décembre 2019"}
-
-        // let images = [
-        //     { name : "bus", like : true, help : true, happy : false},
-        //     { name : "marcher", like : true, help : false, happy : false},
-        //     { name : "velo", like : false, help : true, happy : false}
-        // ]
+        })
+        .then(response => {gameSessions = response.data})
+        .catch(error => console.log(error))
+        return gameSessions; 
+    }
+     loadSummary(GameSession){
+        let summary;
+        axios.post('/api/v1/selected_pictures',{
+            selected_picture : {
+                game_session_id : GameSession
+            }
+        }) 
+        .then(response => {summary = response.data})
+        .catch(error => console.log(error))
         return summary;
+    }
+    async loadPicture(id_picture){
+        let picture; 
+        axios.post('/api/v1/pictures',{
+            picture : {
+                id : id_picture
+            }
+        }).then(response => {picture= response.data})
+        .catch(error => console.log(error))
+        return picture;
     }
 }
 

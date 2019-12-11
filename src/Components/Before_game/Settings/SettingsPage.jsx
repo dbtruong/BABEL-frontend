@@ -35,6 +35,7 @@ class SettingsPage extends Component {
         this.handleClick = this.handleClick.bind(this);
         this.handleClick2 = this.handleClick2.bind(this);
         this.handleClick3 = this.handleClick3.bind(this);
+        this.handleClick4 = this.handleClick4.bind(this);
         this.sendToBackEnd = this.sendToBackEnd.bind(this);
         //this.category = this.api.loadCategories(id);  
         
@@ -58,6 +59,11 @@ class SettingsPage extends Component {
 }
   handleClick3(e){
     this.sendToBackEnd(this.state.categoryPriority);
+  }
+  async handleClick4(e){
+      let childId = localStorage.getItem("childId"); 
+      let lastSession = await this.api.loadlastSession(childId); 
+      this.api.updateChildSession(lastSession.id,lastSession.start_date,lastSession.guardian_comment, lastSession.prof_comment, lastSession.step_one, lastSession.step_two, lastSession.step_three, lastSession.finished_state, lastSession.version, lastSession.child_id, lastSession.user_id, lastSession.mandate_id); 
   }
   handleClick(e){
     // 1 Love - Help - Happy
@@ -317,7 +323,7 @@ class SettingsPage extends Component {
                 <table class="table_settings">
                     <thead>
                         <tr>
-                           <td className="cel2"><Link to={'/commentary'}><button name="Continue" className="button_settings2" >Continuer dernière partie</button></Link></td>
+                           <td className="cel2"><Link to={'/commentary'}><button name="Continue" className="button_settings2" onclick={this.handleClick4}>Continuer dernière partie</button></Link></td>
                            <td className="cel2"><Link to={'/commentary'}><button name="NewGame" className="button_settings2" onClick={this.handleClick3}>Commencer nouvelle partie</button></Link></td>
                         </tr>
                     </thead>

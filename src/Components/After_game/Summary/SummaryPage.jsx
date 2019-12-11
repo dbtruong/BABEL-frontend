@@ -14,15 +14,19 @@ class SummaryPage extends Component {
             happy : 0,
             SessionDate : "",
             SessionDates : [],
+            Summary : []
 
         }
         this.api = new SummaryAPI();
         //this.state.SessionDates = this.api.loadSessions(); 
+        //this.state.Summary = this.api.loadSummary(); 
+        
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.handleClick2 = this.handleClick2.bind(this); 
         this.handleClick3 = this.handleClick3.bind(this);
         this.handleClick4 = this.handleClick4.bind(this);
+        this.resume = this.resume.bind(this); 
         
     }
 
@@ -41,6 +45,7 @@ class SummaryPage extends Component {
     }
     handleChange(e){
         this.setState({value: e.target.value});
+        //localStorage.setItem("GameSessionChosen",e.target.value); 
     }
 
     handleClick2(e){
@@ -164,18 +169,26 @@ class SummaryPage extends Component {
             }
         }   
     }
+    
 
-    resume(habits){
-        return habits.map((habit)=>
-        <tr>
-            <td><img src={this.imagePath+habit.get("picture")} alt={habit.get("id")}/></td>
-            <td>{this.getHabit(habit)}</td>
-            <td>{this.getHabit(habit)}</td>
-            <td>{this.getHabit(habit)}</td> 
-        </tr>
-        );
+   async resume(){
+        let habits = this.state.Summary; 
+        let summary = []; 
+        for(let i =0; i < habits.length ; i++){
+             let picture = await this.api.loadPicture(habits[i].picture_id); 
+            summary.push(<td><img src={picture.path} alt={picture.id}/></td>)
+            summary.push(<td>{this.gethabit(habits.do_like)}</td>)
+            summary.push(<td>{this.getHabit(habits.is_autonomous)}</td>) 
+            summary.push(<td>{this.getHabit(habits.is_happy)}</td>)
+            
+        }
+        return summary; 
+        
         //{this.resume(this.api.getHabits())}
     }
+    
+        
+    
 
     render() {
     return (
@@ -253,7 +266,9 @@ class SummaryPage extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        <tr>
+                            
+                        </tr>
                     </tbody>
                 </table>
             </div>
