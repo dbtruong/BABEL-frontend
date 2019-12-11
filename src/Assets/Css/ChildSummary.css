@@ -7,4 +7,21 @@
 img {
     width: 15%;
     height: 15%;
+    margin-right: 15px;
+}
+
+.likes{
+    width: 10%;
+}
+
+.help, .happy{
+    width: 13%;
+}
+
+.date{
+    font-size: 30px;
+}
+
+.navigation{
+    width: 8%;
 }

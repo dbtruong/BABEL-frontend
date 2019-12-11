@@ -265,7 +265,8 @@ class SettingsPage extends Component {
             return; 
         }
     }
-    localStorage.setItem("TabPriorCategory",this.state.categoryPriority); 
+    
+    localStorage.setItem("TabPriorCategory", this.state.categoryPriority); 
     console.log(this.state.categoryPriority); 
 }
   

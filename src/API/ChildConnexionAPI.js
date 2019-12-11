@@ -2,16 +2,21 @@ import axios from 'axios'
 
 class ChildConnexionAPI{
 
-	getChildSession(id){
-         // Uncomment to link with backend
-        // axios.post(
-        //     this.endpoint,
-        //     { idchild : id}
-        // ).then(res => {
-        //     //console.log(res.data);
-        //     return res.data;
-        // })
-        console.log(id);
+	async getChildSession(id){
+        if (isNaN(id) || id == ""){
+            id = 0
+        }
+        let response;
+        await axios.post('/api/v1/children/login',{
+            child : {
+                id : id
+            }
+        })
+        .then(res => {
+            response = res;
+        })
+        .catch(error => console.log(error))
+        return response.data
     }
 
 }

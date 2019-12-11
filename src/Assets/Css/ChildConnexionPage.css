@@ -22,4 +22,9 @@
 .container {
     text-align: center;
     font-family: 'Inkfree';
-  }
+}
+
+.wrongCredentials{
+  font-size: 25px;
+  color: red;
+}

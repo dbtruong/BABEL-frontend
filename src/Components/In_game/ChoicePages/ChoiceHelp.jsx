@@ -53,13 +53,13 @@ class ChoiceHelp extends Component {
 			
 			<div className="row d-flex justify-content-center divHeigt">
 				
-				<Button name="nohelp" className="like" onClick={this.handleClick}>	
+				<button name="nohelp" className="like" onClick={this.handleClick}>	
 					<input name="nohelp" className="imgButton" type="image" src="Images/nohelp.png" alt="je n'ai pas besoin d'aide"/>
-				</Button>
+				</button>
 				<Button name="" className="skip" onClick={this.handleClick}>Je ne sais pas</Button>
-				<Button name="help" className="dislike" onClick={this.handleClick}>					
+				<button name="help" className="dislike" onClick={this.handleClick}>					
 					<input name="help" className="imgButton" type="image" src="Images/help.png" alt="j'ai besoin d'aide"/>
-				</Button>
+				</button>
 			</div>
 
 			<Link to={'/choiceHappy'}><Button className="next">Aller à la page suivante</Button></Link>
