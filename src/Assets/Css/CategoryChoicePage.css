@@ -21,12 +21,22 @@
     border-color: #0000FF!important;
     font-size: 30px!important;
     height: 200%;
-    width: 410px;
+    width: 377px;
   }
+  
 .table_order {
     margin: 0 auto; 
     
   }
 .div_order{
   padding-top: 1px;
+}
+.category3_button{
+  text-align: center;
+   
+    background-color: rgb(255, 145, 0)!important;
+    border-color: red;
+    font-size: 30px!important;
+    height: 200%;
+    width: 410px;
 }

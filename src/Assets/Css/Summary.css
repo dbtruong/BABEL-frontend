@@ -53,4 +53,11 @@
     width: 100%; 
     height: 70%; 
 }
+.button_settings5 {
+    background-color: orange;
+    border-color: orangered;
+    width : 20%;
+    height: 50%; 
+}
+
 
