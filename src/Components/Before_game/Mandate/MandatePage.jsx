@@ -17,17 +17,19 @@ class MandatePage extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick(e){
-        let childid = localStorage.getItem("chilId"); 
-        let date = Date.now(); 
+    async handleClick(e){
+        let childid = localStorage.getItem("idChild"); 
+        let date = null; 
+        
         this.state.comments = document.getElementById('comments').value; 
-        this.api.sendMandate(childid, this.state.instigator,this.state.comments,date); 
+        let mandatID = await this.api.sendMandate(childid, this.state.instigator,this.state.comments,date);
+        console.log(mandatID); 
+        localStorage.setItem("mandatId",mandatID); 
     }
 
   render() {
     return (
         <nav>
-            
             <div class="container">
                 <h3>Mandat</h3>
                 <label>Instigateur :</label><br/>
@@ -42,7 +44,7 @@ class MandatePage extends Component {
                 <label>Demande :</label><br/>
                 <textarea id="comments" rows="5" cols="40">
                 </textarea><br/><br/>
-                <Link to={'/commentary'} className="nav-link"><button 
+                <Link to={'/settings'} className="nav-link"><button 
                     className="button_mandat"
                     onClick={this.handleClick}>
                     Envoyer Mandat

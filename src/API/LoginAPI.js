@@ -7,7 +7,6 @@ class LoginAPI{
     //test with await if doesn't work
     async checkLogin(login, password){
         let response;
-        // Uncomment to link with backend
         await axios.post('/api/v1/users/login',{
             user: {
                 email : login,

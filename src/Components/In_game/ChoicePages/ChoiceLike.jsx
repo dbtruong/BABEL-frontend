@@ -53,14 +53,14 @@ class ChoiceLike extends Component {
 			
 			<div className="row d-flex justify-content-center divHeigt">
 				
-				<Button name="like" className="like" onClick={this.handleClick}>	
+				<button name="like" className="like" onClick={this.handleClick}>	
 					<input name="like" className="imgButton" type="image" src="Images/like.png" alt="j'aime"/>
-				</Button>
+				</button>
 				<Button name="" className="skip" onClick={this.handleClick}>Je ne sais pas</Button>
-				<Button name="dislike" className="dislike" onClick={this.handleClick}>
+				<button name="dislike" className="dislike" onClick={this.handleClick}>
 					
 					<input name="dislike" className="imgButton" type="image" src="Images/dislike.png" alt="je n'aime pas"/>
-				</Button>
+				</button>
 			</div>
 
 			<Link to={'/choiceHelp'}><Button className="next">Aller à la page suivante</Button></Link>

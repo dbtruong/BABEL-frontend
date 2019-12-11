@@ -39,7 +39,7 @@ class LoginPage extends Component{
             <div className="container">
                 <Link to={'/'}><img src="Images/logo.png" alt="logo esope" className="imgLogo"/></Link><br/>
                 <label>Pseudo :</label><br/>
-                <input 
+                <input
                     type="text"
                     name="user"
                     placeholder="Entrez votre pseudo"
