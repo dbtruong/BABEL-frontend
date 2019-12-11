@@ -326,7 +326,7 @@ class SettingsPage extends Component {
                     <thead>
                         <tr>
                            <td className="cel2"><Link to={'/commentary'}><button name="Continue" className="button_settings2" onClick={this.handleClick4}>Continuer dernière partie</button></Link></td>
-                           <td className="cel2"><Link to={'/commentary'}><button name="NewGame" className="button_settings2" onClick={this.handleClick3}>Commencer nouvelle partie</button></Link></td>
+                           <td className="cel2"><Link to={'/commentary'}><button name="NewGame" className="button_settings2" onClick={this.handleClick3}>Valider</button></Link></td>
                         </tr>
                     </thead>
                 </table>
