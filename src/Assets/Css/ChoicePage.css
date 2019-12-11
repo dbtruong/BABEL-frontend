@@ -32,6 +32,8 @@
 }
 
 .next {
+	background-color: #FFA700!important;
+    border-color: #FFA700!important;
 	margin-top: 50px;
 	width: 55%;
 	font-size: 20px;

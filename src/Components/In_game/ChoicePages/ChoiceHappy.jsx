@@ -53,13 +53,13 @@ class ChoiceHappy extends Component {
 			
 			<div className="row d-flex justify-content-center divHeigt">
 				
-				<Button name="happy" className="like" onClick={this.handleClick}>	
+				<button name="happy" className="like" onClick={this.handleClick}>	
 					<input name="happy" className="imgButton" type="image" src="Images/happy.png" alt="je suis content"/>
-				</Button>
+				</button>
 				<Button name="" className="skip" onClick={this.handleClick}>Je ne sais pas</Button>
-				<Button name="unhappy" className="dislike" onClick={this.handleClick}>					
+				<button name="unhappy" className="dislike" onClick={this.handleClick}>					
 					<input name="unhappy" className="imgButton" type="image" src="Images/unhappy.png" alt="je ne suis pas content"/>
-				</Button>
+				</button>
 			</div>
 
 			<Link to={'/'}><Button className="next">Aller à la page de résultat</Button></Link>
