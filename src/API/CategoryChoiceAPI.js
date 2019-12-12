@@ -1,8 +1,8 @@
 import axios from "axios";
 class CategoryChoiceAPI{
 
-    sendCategory(id_game,id_category,sorting){
-        axios.post('/api/v1/selected_categories',{
+    async sendCategory(id_game,id_category,sorting){
+        await axios.post('https://esope-prod.herokuapp.com/api/v1/selected_categories',{
             selected_category: {
                 sorting : sorting,
                 status : false, 
@@ -13,7 +13,7 @@ class CategoryChoiceAPI{
     }
     async getGameSessionId(childId){ 
         let gameSession; 
-         await axios.post('/api/v1/game_sessions/latest/'+childId)
+         await axios.post('https://esope-prod.herokuapp.com/api/v1/game_sessions/latest/'+childId)
            .then(response => {gameSession = response.data[0].game_id})
            .catch(error => console.log(error))
            return gameSession;

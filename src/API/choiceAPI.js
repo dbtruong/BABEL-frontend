@@ -65,10 +65,19 @@ class choiceAPI{
 		return listImages;
     }
     
-    sendImage(name, like){
-        //axios.get()
-        let toSend = {name : name, like : like}
-        console.log(toSend);
+    async sendImageResult(name, res){
+        let response = await axios.post('https://esope-prod.herokuapp.com/api/v1/game_sessions/latest/1',{
+            picture : {
+                    name : name,
+                    res : res
+                }
+            }
+        )
+        .then(res => {
+            response = res;
+        })
+        .catch(error => console.log(error))
+        return response.data;
     }
 
 }

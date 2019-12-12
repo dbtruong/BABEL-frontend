@@ -66,10 +66,19 @@ class SortingTopicsAPI{
 		return listImages;
     }
     
-    sendImage(name, like){
-        //axios.get()
-        let toSend = {name : name, like : like}
-        console.log(toSend);
+    async sendCategory(name, prio){
+        let response = await axios.post('https://esope-prod.herokuapp.com/api/v1/game_sessions/latest/1',{
+            category : {
+                    name : name,
+                    priority : prio
+                }
+            }
+        )
+        .then(res => {
+            response = res;
+        })
+        .catch(error => console.log(error))
+        return response.data;
     }
 
 }

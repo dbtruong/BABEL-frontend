@@ -4,7 +4,7 @@ import axios from "axios";
 
 class LoginAPI{
 
-    //test with await if doesn't work
+    //Check if login is correct
     async checkLogin(login, password){
         let response;
         await axios.post('https://esope-prod.herokuapp.com/api/v1/users/login',{
