@@ -35,7 +35,7 @@ class CategoryChoicePage extends Component {
     }
     async sendToBackEnd(categorietab){
       let childId = localStorage.getItem("idChild"); 
-      console.log(childId); 
+      
       let gameSessionId = await this.api.getGameSessionId(childId); 
       console.log(gameSessionId); 
       
