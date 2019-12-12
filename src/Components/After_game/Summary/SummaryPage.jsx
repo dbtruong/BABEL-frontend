@@ -247,9 +247,9 @@ class SummaryPage extends Component {
         for(let i =0; i < habits.length ; i++){
              let picture = await this.api.loadPicture(habits[i].picture_id); 
             summary.push(<td><img src={picture.path} alt={picture.id}/></td>)
-            summary.push(<td>{this.gethabit(habits.do_like)}</td>)
-            summary.push(<td>{this.getHabit(habits.is_autonomous)}</td>) 
-            summary.push(<td>{this.getHabit(habits.is_happy)}</td>)
+            summary.push(<td>{this.getLove(habits.do_like)}</td>)
+            summary.push(<td>{this.getHelp(habits.is_autonomous)}</td>) 
+            summary.push(<td>{this.getHappy(habits.is_happy)}</td>)
             
         }
         return summary; 
@@ -341,7 +341,7 @@ class SummaryPage extends Component {
                     </thead>
                     <tbody>
                           {this.state.Summary}
-                            {/*this.summary()*/}
+                            {/*this.state.Session*/}
                         
                     </tbody>
                 </table>
