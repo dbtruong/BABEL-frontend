@@ -2,7 +2,7 @@ import axios from 'axios'
 
 class commentaryAPI{
 
-    getHabitsByCategory(id){
+    async getHabitsByCategory(id){
         var habits = [];
         await axios.post('https://esope-prod.herokuapp.com/api/v1/categories/allPictures/', {id:id})
         .then(function (response) {
