@@ -16,9 +16,9 @@ class MandateAPI{
        .catch(error => console.log(error))
        return id_mandate;
     }
-    createGame(child_id, user_id, mandate_id){
+    async createGame(child_id, user_id, mandate_id){
         let gameSessionId; 
-        axios.post('/api/v1/game_sessions', {
+        await axios.post('/api/v1/game_sessions', {
            game_session : {
             start_date : null,
             guardian_comment : null,
@@ -30,7 +30,8 @@ class MandateAPI{
             version : null, 
             child_id : child_id,
             user_id : user_id,
-            mandate_id : mandate_id
+            mandate_id : mandate_id,
+            
            } 
         })
         .then(response => {gameSessionId = response.data.id})
