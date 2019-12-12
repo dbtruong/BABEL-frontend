@@ -23,11 +23,14 @@ class MandatePage extends Component {
         let childId = localStorage.getItem("idChild");
         let userId = localStorage.getItem("sessionId");  
         let date = null; 
-        
+        console.log(childId); 
+        console.log(userId); 
         this.state.comments = document.getElementById('comments').value; 
         let mandatId = await this.api.sendMandate(childId, this.state.instigator,this.state.comments,date);
-        this.api.createGame(1,1,1); 
-        let gameSessionId = this.api.createGame(childId,userId,mandatId)
+         
+        let gameSessionId =  await this.api.createGame(childId,userId,mandatId);
+         
+
         localStorage.setItem("mandatId",mandatId); 
         localStorage.setItem("gameSessionId",gameSessionId); 
     }
