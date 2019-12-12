@@ -15,11 +15,11 @@ class StartPage extends Component {
     let like = JSON.parse(localStorage.getItem('recoverLike'))
     let help = JSON.parse(localStorage.getItem('recoverHelp'))
     let happy = JSON.parse(localStorage.getItem('recoverHappy'))
-    if(like == 1){
+    if(like === 1){
       this.props.history.push("/choiceLike")
-    } else if(help == 1){
+    } else if(help === 1){
       this.props.history.push("/choiceHelp")
-    } else if(happy == 1){
+    } else if(happy === 1){
       this.props.history.push("/choiceHappy")
     } else {
       this.props.history.push("/categoryChoice")
