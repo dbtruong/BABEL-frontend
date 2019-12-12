@@ -29,7 +29,7 @@ class ProfChildChoicePage extends Component {
     console.log("oui", data)
     this.setState({
       posts : data.map((child) =>
-        <div onClick={e => this.select(child.get("id"))} className="row justify-content-center" key={""+child.get("id")}>
+        <Link to={'/mandate'}><div onClick={e => this.select(child.get("id"))} className="row justify-content-center" key={""+child.get("id")}>
           <div className="col-sm-2">
             <img src={this.imagePath+child.get("picture")} alt="photo enfant" className="Logo"/>
           </div>
@@ -44,12 +44,14 @@ class ProfChildChoicePage extends Component {
           </div>
           <br/>
         </div>
+        </Link>
       )
     });
   }
 
   select(id){
     localStorage.setItem("idChild", id);
+
   }
 
   render() {
