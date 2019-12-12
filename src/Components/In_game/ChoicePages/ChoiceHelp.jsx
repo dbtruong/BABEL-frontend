@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../../../Assets/Css/ChoicePage.css';
+import {Link} from 'react-router-dom'
 import choiceAPI from '../../../API/choiceAPI.js'
 import Button from 'react-bootstrap/Button'
 
@@ -21,6 +22,7 @@ class ChoiceHelp extends Component {
 		this.state.currentDesc = temp[0].desc;
 		//console.log(temp);
 		this.handleClick = this.handleClick.bind(this);
+		localStorage.setItem('recoverHelp', 1)
 	}
 
 	handleClick(e){
@@ -31,6 +33,7 @@ class ChoiceHelp extends Component {
 				"res" : e.target.name
 			})
 			localStorage.setItem('picturesHelp', JSON.stringify(this.state.array))
+			localStorage.removeItem('recoverHelp')
 			this.props.history.push("/choiceHappy")
 		} else {
 			this.setState({
@@ -44,6 +47,7 @@ class ChoiceHelp extends Component {
 	render(){
 		return(
 		<div className="page">
+			<Link to={'/'}><img src="Images/logo.png" alt="logo esope" className="imgLogo"/></Link>
 			<div className="mb-5">
 				<h1 className="title">J'ai besoin d'aide ou je n'ai pas besoin d'aide pour...</h1>
 				<p>{this.state.currentDesc}</p>

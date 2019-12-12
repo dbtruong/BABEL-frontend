@@ -28,3 +28,7 @@
   font-size: 25px;
   color: red;
 }
+
+h1 {
+  text-decoration: underline;
+}
