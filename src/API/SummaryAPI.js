@@ -56,6 +56,41 @@ class SummaryAPI {
             }
         }).catch(error => console.log(error))
     }
+    getChildSummary(){ 
+    let summary = [
+    {   date : "13 décembre 2019",
+                images : [
+                    { name : "/deplacements/bus", like : true, help : true, happy : false, category : "deplacements"},
+                    { name : "/loisirs/ecrire", like : false, help : true, happy : false, category : "loisirs"},
+                    { name : "/nutrition/manger_mains", like : true, help : true, happy : true, category : "nutrition"},
+                    { name : "/deplacements/velo", like : true, help : false, happy : false, category : "deplacement"},
+                    
+                ]
+            },
+            {   date : "15 novembre 2019",
+                images : [
+                    { name : "/deplacements/traverser", like : true, help : false, happy : false,category : "deplacement"},
+                    { name : "/deplacements/voiture", like : true, help : false, happy : false,category : "deplacement"},
+                    { name : "/habitation/balayer", like : true, help : true, happy : true, category :"habitation"},
+                    { name : "/loisirs/ecrire", like : false, help : true, happy : false,category : "loisirs"},
+                    { name : "/loisirs/manger_mains", like : true, help : true, happy : true,category : "loisirs"},
+                    { name : "/nutrition/boire_tasse", like : true, help : false, happy : true,category : "nutrition"},
+                    { name : "/nutrition/sandwich", like : false, help : false, happy : false,category : "nutrition"}
+                ]
+            },
+            {   date : "12 septembre 2019",
+                images : [
+                    { name : "/deplacements/velo", like : false, help : true, happy : false, category : "deplacement"},
+                    { name : "/habitation/ranger_espace", like : true, help : true, happy : false, category :"habitation"},
+                    { name : "/relationscom/parler_adultes", like : false, help : true, happy : false, category :"communication"},
+                    { name : "/loisirs/casque_ordi", like : true, help : false, happy : false,category : "loisirs"},
+                    { name : "/soinspersonnels/dormir", like : false, help : false, happy : true, category :"soins"},
+                    { name : "/soinspersonnels/toilettes", like : true, help : false, happy : true,category :"soins"}
+                ]
+            }
+        ]
+        return summary
+    }
 }
 
 export default SummaryAPI;
