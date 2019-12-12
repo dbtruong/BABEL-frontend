@@ -31,7 +31,14 @@ class SortingTopics extends Component {
     }
 
     render() {
-        let categories = ["soinspersonnels", "deplacements", "nutrition", "loisirs"]
+        let temp = JSON.parse(localStorage.getItem('CategoryTab'))
+        console.log("moi", temp.length)
+        let cat_array = ["", "nutrition", "soinspersonnels", "relationscom", "habitation", "deplacements", "responsabilites", "loisirs"]
+        let categories = []
+        for (let i = 0; i < temp.length; i++) {
+            categories.push(cat_array[temp[i]])
+        }
+        console.log(categories);
         let allImages = this.api.getImages();
         let toReturn = []
         let length, name;
@@ -87,6 +94,7 @@ class SortingTopics extends Component {
         }
         return (
             <div className="container">
+                <Link to={'/'}><img src="Images/logo.png" alt="logo esope" className="imgLogo"/></Link><br/>
                 {toReturn}
                 <br/><br/>
                 <div>

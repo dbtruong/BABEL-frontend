@@ -3,28 +3,28 @@ import axios from 'axios'
 class ChildSummaryAPI{
 
     async getChildSummary(){
-        let response;
-        await axios.post('/api/v1/game_sessions/latest/1')
-        .then(res => response = res.data)
-        .catch(error => console.log(error));
+        // let response;
+        // await axios.post('/api/v1/game_sessions/latest/1')
+        // .then(res => response = res.data)
+        // .catch(error => console.log(error));
 
-        //Put every images in an array and send objects for the summary
-        let array = [];
-        for(let i = 0; i < response.length; i++){
-            let tempArray = [];
-            let date = new Date(response[i].insert_date);
-            let tempObject = {
-                name : response[i].id,
-                like : response[i].do_like,
-                help : response[i].is_autonomous,
-                happy : response[i].is_happy
-            }
-            tempArray.push(tempObject);
-            array.push({
-                date : date,
-                images : tempArray
-            })
-        }
+        // //Put every images in an array and send objects for the summary
+        // let array = [];
+        // for(let i = 0; i < response.length; i++){
+        //     let tempArray = [];
+        //     let date = new Date(response[i].insert_date);
+        //     let tempObject = {
+        //         name : response[i].id,
+        //         like : response[i].do_like,
+        //         help : response[i].is_autonomous,
+        //         happy : response[i].is_happy
+        //     }
+        //     tempArray.push(tempObject);
+        //     array.push({
+        //         date : date,
+        //         images : tempArray
+        //     })
+        // }
 
         //response doit être un json qui contient images et un attribut date
         let summary = [

@@ -18,8 +18,10 @@ class ChildConnexionPage extends Component {
 
   async handleClick(){
     let res = await this.api.getChildSession(this.state.id)
+    console.log(res);
     if (res.length){
       localStorage.setItem('sessionId', res[0].id)
+      localStorage.setItem('childName', JSON.stringify({"name" : res[0].name}))
       this.props.history.push('/childSummary')
     } else {
         this.setState({message : "Identifiant inexistant"})
