@@ -3,7 +3,7 @@ class SettingsAPI{
 
     async loadCategories(category){
         let categories; 
-        await axios.post('/api/v1/selected_categories/choosenCategories/'+category)
+        await axios.post('https://esope-prod.herokuapp.com/api/v1/selected_categories/choosenCategories/'+category)
         .then(response => {categories = response.data})
         return categories; 
     }

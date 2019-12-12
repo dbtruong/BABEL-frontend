@@ -4,7 +4,7 @@ class MandateAPI{
 
     async sendMandate(childId,instigator,demand,date){
         let id_mandate; 
-        await axios.post('/api/v1/mandates',{
+        await axios.post('https://esope-prod.herokuapp.com/api/v1/mandates',{
         mandate : {
             insert_date : date,
             child_id : childId,

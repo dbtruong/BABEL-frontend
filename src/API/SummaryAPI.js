@@ -4,14 +4,14 @@ class SummaryAPI {
    
     async loadSessions(childId){
         let gameSessions; 
-        await axios.post('/api/v1/game_sessions/allDate/'+childId)
+        await axios.post('https://esope-prod.herokuapp.com/api/v1/game_sessions/allDate/'+childId)
         .then(response => {gameSessions = response.data})
         .catch(error => console.log(error))
         return gameSessions; 
     }
      loadSummary(GameSession){
         let summary;
-        axios.post('/api/v1/selected_pictures',{
+        axios.post('https://esope-prod.herokuapp.com/api/v1/selected_pictures',{
             selected_picture : {
                 game_session_id : GameSession
             }
@@ -22,7 +22,7 @@ class SummaryAPI {
     }
     async loadPicture(id_picture){
         let picture; 
-        axios.post('/api/v1/pictures',{
+        axios.post('https://esope-prod.herokuapp.com/api/v1/pictures',{
             picture : {
                 id : id_picture
             }
@@ -32,7 +32,7 @@ class SummaryAPI {
     }
     async getGameSession(gameSessionId){
         let gameSession; 
-       await axios.put('/api/v1/game_sessions',{
+       await axios.put('https://esope-prod.herokuapp.com/api/v1/game_sessions',{
             game_session: {
                 id : gameSessionId
             }
@@ -40,7 +40,7 @@ class SummaryAPI {
         return gameSession;
     }
     updateChildSession(gameSessionId,start_date,guardian_comment,prof_comment,step_one,step_two,step_three,finished_state,version,child_id,user_id,mandate_id){
-        axios.put('/api/v1/game_sessions/'+gameSessionId,{
+        axios.put('https://esope-prod.herokuapp.com/api/v1/game_sessions/'+gameSessionId,{
             game_session: {
                 start_date : start_date,
                 guardian_comment : guardian_comment,

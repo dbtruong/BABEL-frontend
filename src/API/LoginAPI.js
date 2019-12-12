@@ -7,7 +7,7 @@ class LoginAPI{
     //test with await if doesn't work
     async checkLogin(login, password){
         let response;
-        await axios.post('/api/v1/users/login',{
+        await axios.post('https://esope-prod.herokuapp.com/api/v1/users/login',{
             user: {
                 email : login,
                 pwd : password 

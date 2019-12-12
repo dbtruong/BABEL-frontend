@@ -4,7 +4,7 @@ class profChildChoiceAPI{
 
 	async getChildByProf(id){
         var children = [];
-        await axios.post('/api/v1/professionals_to_children/listChildren/',{id : id})
+        await axios.post('https://esope-prod.herokuapp.com/api/v1/professionals_to_children/listChildren/',{id : id})
         .then(function (response) {
             response.data.forEach(function(element){
                 var child = new Map();

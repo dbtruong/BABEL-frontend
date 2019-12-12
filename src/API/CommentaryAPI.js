@@ -4,7 +4,7 @@ class commentaryAPI{
 
     getHabitsByCategory(id){
         var habits = [];
-        /*await axios.post('/api/v1/categories/allPictures/', {id:id})
+        /*await axios.post('https://esope-prod.herokuapp.com/api/v1/categories/allPictures/', {id:id})
         .then(function (response) {
             response.data.array.forEach(function(element){
                 var habit = new Map();

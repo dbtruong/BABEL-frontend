@@ -7,7 +7,7 @@ class ChildConnexionAPI{
             id = 0
         }
         let response;
-        await axios.post('/api/v1/children/login',{
+        await axios.post('https://esope-prod.herokuapp.com/api/v1/children/login',{
             child : {
                 id : id
             }
