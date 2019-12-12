@@ -13,8 +13,8 @@ class CategoryChoiceAPI{
     }
     async getGameSessionId(childId){ 
         let gameSession; 
-         await axios.post('/api/v1/game_sessions/latest/'+childId)
-           .then(response => {gameSession = response.data[0].game_id})
+         await axios.post('/api/v1/game_sessions/getgameforchild/'+childId)
+           .then(response => {gameSession = response.data[0].id})
            .catch(error => console.log(error))
            return gameSession;
     }

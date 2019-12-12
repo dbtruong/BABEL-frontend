@@ -142,7 +142,8 @@ class SettingsPage extends Component {
   async loadCategory(){
       let id = localStorage.getItem("gameSessionId");
       console.log(id); 
-      this.state.categories = await this.api.loadCategories(id); // set Id in comment
+      this.state.categories = await this.api.loadCategories(id);
+      console.log(this.state.categories);  // set Id in comment
     
     this.setState({
         divCategories: this.state.categories.map((categ, i) => (
