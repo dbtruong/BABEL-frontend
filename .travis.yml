@@ -4,9 +4,9 @@ node_js:
 cache:
   directories:
     - node_modules
-build: set CI=false && react-scripts build
 script:
   - npm test
+  - unset CI
   - npm run build
 on:
   branch: master
