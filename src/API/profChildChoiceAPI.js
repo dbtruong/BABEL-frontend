@@ -6,6 +6,7 @@ class profChildChoiceAPI{
         var children = [];
         await axios.post('/api/v1/professionals_to_children/listChildren/',{id : id})
         .then(function (response) {
+            console.log("coucou");
             response.data.forEach(function(element){
                 var child = new Map();
                 child.set("id", element.id);
@@ -16,6 +17,7 @@ class profChildChoiceAPI{
                 child.set("handicap", element.handicap);
                 children.push(child);
             });
+            console.log(children);
             return children;
         })
         .catch(function (error) {

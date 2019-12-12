@@ -61,6 +61,7 @@ class MandatePage extends Component {
                     Envoyer Mandat
                 </button></Link><br/><br/>
                 <Link to={'/commentary'}><button name="Continue" className="button_mandat" onClick={this.handleClick4}>Continuer dernière partie</button></Link>
+                <Link to={'/summary'}><button name="Summary" className="button_mandat" >Voir les résumés</button></Link>
            </div>
         </nav>
     );
