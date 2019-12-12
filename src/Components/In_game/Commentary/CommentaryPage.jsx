@@ -35,7 +35,7 @@ class commentaryPage extends Component{
             posts : data.map((habit)=>
             <div className="row justify-content-center habit" key = {habit.get("id")}>
                 <div className="col-sm-2">
-                    <img src={this.imagePath+habit.get("picture")} alt={habit.get("nom")} className="Logo"/>
+                    <img className="picture" src={this.imagePath+habit.get("picture")} alt={habit.get("nom")}/>
                 </div>
                 <div className="col-sm-4">
                     <textarea class="form-control" id={habit.get("id")} rows="2"></textarea>
