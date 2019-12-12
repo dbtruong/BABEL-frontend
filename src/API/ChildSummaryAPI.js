@@ -26,7 +26,7 @@ class ChildSummaryAPI{
             })
         }
 
-        response doit être un json qui contient images et un attribut date
+        //response doit être un json qui contient images et un attribut date
         let summary = [
             {   date : "3 décembre 2019",
                 images : [
