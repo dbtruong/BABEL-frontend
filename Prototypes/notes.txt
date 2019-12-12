@@ -1,0 +1,2 @@
+Front : Ink Free
+backgroundColor : #ECECFF
