@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../../../Assets/Css/ChoicePage.css';
+import {Link} from 'react-router-dom'
 import choiceAPI from '../../../API/choiceAPI.js'
 import Button from 'react-bootstrap/Button'
 
@@ -21,6 +22,7 @@ class ChoiceLike extends Component {
 		this.state.currentDesc = temp[0].desc;
 		//console.log(temp);
 		this.handleClick = this.handleClick.bind(this);
+		localStorage.setItem('recoverLike', 1)
 	}
 
 	handleClick(e){
@@ -31,6 +33,7 @@ class ChoiceLike extends Component {
 				"res" : e.target.name
 			})
 			localStorage.setItem('picturesLike', JSON.stringify(this.state.array))
+			localStorage.removeItem('recoverLike');
 			this.props.history.push("/choiceHelp")
 		} else {
 			this.setState({
@@ -38,13 +41,13 @@ class ChoiceLike extends Component {
 				currentDesc : this.state.listImages[this.state.index].desc
 			})
 			this.state.array.push({"name" : this.state.currentImg, "res" : e.target.name})
-		}		
+		}
 	}
 
 	render(){
-
 		return(
 		<div className="page">
+			<Link to={'/'}><img src="Images/logo.png" alt="logo esope" className="imgLogo"/></Link>
 			<div className="mb-5">
 				<h1 className="title">J'aime ou je n'aime pas...</h1>
 				<p>{this.state.currentDesc}</p>
@@ -56,7 +59,7 @@ class ChoiceLike extends Component {
 				<button name="like" className="like" onClick={this.handleClick}>	
 					<input name="like" className="imgButton" type="image" src="Images/like.png" alt="j'aime"/>
 				</button>
-				<Button name="" className="skip" onClick={this.handleClick}>Je ne sais pas</Button>
+				<Button name="skip" className="skip" onClick={this.handleClick}>Je ne sais pas</Button>
 				<button name="dislike" className="dislike" onClick={this.handleClick}>
 					<input name="dislike" className="imgButton" type="image" src="Images/dislike.png" alt="je n'aime pas"/>
 				</button>

@@ -89,9 +89,11 @@ class ChildSummary extends Component{
         if (localStorage.getItem('role') != "parent"){
             button = <Link to={"/start"}><Button className="button">Page suivante</Button></Link>
         }
+        let childName = JSON.parse(localStorage.getItem('childName'));
         return(
             <div className="container">
-                <h1>Synthèse de l'enfant</h1><br/><br/>
+                <h1>Synthèse de l'enfant</h1><br/>
+                <h2>Nom de l'enfant : {childName.name}</h2> 
                 {this.state.summary}<br/>
                 {button}
             </div>

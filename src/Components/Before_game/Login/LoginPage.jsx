@@ -38,11 +38,11 @@ class LoginPage extends Component{
         return(
             <div className="container">
                 <Link to={'/'}><img src="Images/logo.png" alt="logo esope" className="imgLogo"/></Link><br/>
-                <label>Pseudo :</label><br/>
+                <label>Adresse e-mail :</label><br/>
                 <input
                     type="text"
                     name="user"
-                    placeholder="Entrez votre pseudo"
+                    placeholder="Entrez votre adresse mail"
                     value = {this.state.login}
                     onChange={e => this.setState({login : e.target.value})}>
                 </input><br/>

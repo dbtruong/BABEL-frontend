@@ -47,7 +47,7 @@ class CategoryChoicePage extends Component {
 
   }
   handleClick2(e){
-      console.log(this.state.categoryPriority); 
+    console.log(this.state.categoryPriority); 
     this.sendToBackEnd(this.state.categoryPriority); 
   }
   handleClick(e){
@@ -155,8 +155,8 @@ class CategoryChoicePage extends Component {
             return; 
         }
     }
-    console.log(this.state.categoryPriority); 
-    localStorage.setItem("CategoryTab",this.state.categoryPriority); 
+    console.log("ici", this.state.categoryPriority); 
+    localStorage.setItem("CategoryTab",JSON.stringify(this.state.categoryPriority));
 }
 
   render() {
