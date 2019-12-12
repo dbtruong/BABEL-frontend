@@ -16,11 +16,12 @@ class SummaryPage extends Component {
             SessionDates : [],
             sessions : [],
             Session : "", 
-            Summary : []
+            Summary : [],
+            bool : 0,
+            bool2 : 0
 
         }
         this.api = new SummaryAPI();
-        //this.state.SessionDates = this.api.loadSessions(); 
         //this.state.Summary = this.api.loadSummary(); 
         
         this.handleChange = this.handleChange.bind(this);
@@ -29,44 +30,81 @@ class SummaryPage extends Component {
         this.handleClick3 = this.handleClick3.bind(this);
         this.handleClick4 = this.handleClick4.bind(this);
         this.handleClick5 = this.handleClick5.bind(this); 
-        this.resume = this.resume.bind(this); 
+        this.summary = this.summary.bind(this); 
+        //this.resume = this.resume.bind(this); 
         
     }
     componentDidMount(){
-        this.createSelect(); 
+       // this.createSelect(); 
+       // this.resume(); 
+       this.summary(); 
+    }
+    summary(){
+    let summary = this.api.getChildSummary();
+    let sum = []; 
+    let path = "Images"; 
+    let gameSession = localStorage.getItem("GameSessionChosen"); 
+    for(let i = 0; i <summary.length; i++){
+        localStorage.getItem("GameSessionChosen"); 
+        if(summary[i].date===gameSession || this.state.bool2 === 0){
+            
+        for(let j =0; j < summary[i].images.length; j++){
+            if( this.state.bool===0 ){
+                let like = this.getLove(summary[i].images[j].like); 
+                let help = this.getHelp(summary[i].images[j].help); 
+                let happy = this.getHappy(summary[i].images[j].happy); 
+                sum.push(<tr><td class="cel5"><img class="img_render" src={path+summary[i].images[j].name+".jpg"} alt={summary[i].images[j].name}/></td><td class="cel4"><h1>{like}</h1></td><td class="cel4"><h1>{help}</h1></td><td class="cel4"><h1>{happy}</h1></td></tr>);
+            }else if (summary[i].images[j].category===this.state.currentCategory){
+                let like = this.getLove(summary[i].images[j].like); 
+                let help = this.getHelp(summary[i].images[j].help); 
+                let happy = this.getHappy(summary[i].images[j].happy); 
+                sum.push(<tr><td class="cel5"><img class="img_render" src={path+summary[i].images[j].name+".jpg"} alt={summary[i].images[j].name}/></td><td class="cel4"><h1>{like}</h1></td><td class="cel4"><h1>{help}</h1></td><td class="cel4"><h1>{happy}</h1></td></tr>);
+            }
+        }
+    }
+    }
+    
+    this.setState({Summary : sum}); 
+    //return sum; 
     }
 
-    async createSelect(){
+    /*async createSelect(){
         
-        //let childId = localStorage.getItem("childId"); 
-        let childId = 1; 
-        this.state.sessions = await this.api.loadSessions(childId); 
-        console.log(this.state.sessions.id);
-        console.log(this.state.sessions.length);
-
-       /* let children = []
+       let childId = localStorage.getItem("childId");
+       this.state.sessions = await this.api.loadSessions(childId);
+       let children = []
         this.state.sessions.map((ses) => (
             children.push(<option key={ses.id}> {ses.start_date}</option>)
             )) ;
         
-       //if(this.state.sessions.length <1){
+       if(this.state.sessions.length <1){
          this.setState({
             SessionDates: children
           });
-       /* }else {
+       }else {
             this.setState({Session : <option key={this.state.sessions.id} value={this.state.sessions.id}></option>});
-        }*/
-    }
+        }
+    }*/
+   /* componentDidUpdate(){
+        this.summary(); 
+    }*/
+
     handleChange(e){
-        this.setState({value: e.target.value});
+        this.setState({session: e.target.value});
+        console.log(e.target.value); 
         localStorage.setItem("GameSessionChosen",e.target.value); 
+        this.state.bool2 = 1; 
+        this.summary(); 
     }
    async handleClick5(e){
        let gameSessionId = localStorage.getItem("GameSessionChosen"); 
-       let gameSession = await this.api.getGameSession(gameSessionId); 
+       let gameSession = await this.api.getGameSession(gameSessionId);
+        console.log(gameSession )
        let elem = document.getElementById("comments");
        this.api.updateChildSession(gameSession.id,gameSession.start_date,elem.target.value, gameSession.prof_comment, gameSession.step_one, gameSession.step_two, gameSession.step_three, gameSession.finished_state, gameSession.version, gameSession.child_id, gameSession.user_id, gameSession.mandate_id);
     }
+    
+    
 
     handleClick2(e){
         let ChildState = e.target.name
@@ -124,74 +162,86 @@ class SummaryPage extends Component {
         // 6 Responsabilité
         // 7 Relations/Communication
          let categoryChoice = e.target.name
-         
+         this.state.bool = 1; 
          let tab; 
          if(categoryChoice==="1"){
             document.getElementsByName("1")[0].style.borderColor = 'red';
-            this.state.currentCategory= 1; 
-            tab = ["2","3","4","5","6"]; 
+            this.state.currentCategory= "deplacement"; 
+            tab = ["2","3","4","5","6","8"]; 
          }
          if(categoryChoice==="2"){
             document.getElementsByName("2")[0].style.borderColor = 'red';
-            this.state.currentCategory= 2;
-            tab = ["1","3","4","5","6","7"]; 
+            this.state.currentCategory= "habitation";
+            tab = ["1","3","4","5","6","7","8"]; 
          }
          if(categoryChoice==="3"){
             document.getElementsByName("3")[0].style.borderColor = 'red';
-            this.state.currentCategory= 3;
-            tab = ["1","2","4","5","6","7"]; 
+            this.state.currentCategory= "loisirs";
+            tab = ["1","2","4","5","6","7","8"]; 
          }
          if(categoryChoice==="4"){
             document.getElementsByName("4")[0].style.borderColor = 'red';
-            this.state.currentCategory= 4;
-            tab = ["1","2","3","5","6","7"]; 
+            this.state.currentCategory= "nutrition";
+            tab = ["1","2","3","5","6","7","8"]; 
          }
          if(categoryChoice==="5"){
             document.getElementsByName("5")[0].style.borderColor = 'red';
-            this.state.currentCategory= 5;
-            tab = ["1","2","3","4","6","7"]; 
+            this.state.currentCategory= "soins";
+            tab = ["1","2","3","4","6","7","8"]; 
          }
          if(categoryChoice==="6"){
             document.getElementsByName("6")[0].style.borderColor = 'red';
-            this.state.currentCategory= 6;
-            tab = ["1","2","3","4","5","7"]; 
+            this.state.currentCategory= "responsabilite";
+            tab = ["1","2","3","4","5","7","8"]; 
          }
          if(categoryChoice==="7"){
             document.getElementsByName("7")[0].style.borderColor = 'red';
-            this.state.currentCategory= 7;
-            tab = ["1","2","3","4","5","6"]; 
+            this.state.currentCategory= "communication";
+            tab = ["1","2","3","4","5","6","8"]; 
+         }
+         if(categoryChoice==="8"){
+            document.getElementsByName("8")[0].style.borderColor = 'red';
+            this.state.bool=0;
+            tab = ["1","2","3","4","5","6","7"]; 
          }
          tab.forEach(element => document.getElementsByName(element)[0].style.borderColor = '#7dbdfd');
+         this.summary(); 
     }
     
-    getHabit(habit){
+    getLove(love){
         let f= "X"; 
         let t= "V"; 
-        if(habit.id==="Love"){
-            if(habit.love){
-                return t; 
-            }else{
-                return f; 
-            }
+        
+        if(love){
+            return t; 
+        }else{
+            return f; 
         }
-        if(habit.id==="Help"){
-            if(habit.help){
-                return t; 
-            }else{
-                return f; 
-            }
+    }
+    getHelp(help){
+        let f= "X"; 
+        let t= "V"; 
+        
+        if(help){
+            return t; 
+        }else{
+            return f; 
         }
-        if(habit.id==="Happy"){
-            if(habit.happy){
-                return t;
-            }else{
-                return f; 
-            }
-        }   
+    }
+        
+    getHappy(happy){
+        let f= "X"; 
+        let t= "V"; 
+
+        if(happy){
+            return t;
+        }else{
+            return f; 
+        }
     }
     
 
-   async resume(){
+   /*async resume(){
         let habits = this.state.Summary; 
         let summary = []; 
         for(let i =0; i < habits.length ; i++){
@@ -204,8 +254,7 @@ class SummaryPage extends Component {
         }
         return summary; 
         
-        //{this.resume(this.api.getHabits())}
-    }
+    }*/
     
         
     
@@ -217,12 +266,14 @@ class SummaryPage extends Component {
             <div>
                 <h5>Choisissez la date de session</h5>
                 <select onChange={this.handleChange}> 
-                 {this.state.sessions}
-                 {this.state.Session}
+                 {/*{this.state.sessions}
+                 {this.state.Session}*/}
+                 <option value = "13 décembre 2019">13 décembre 2019</option>
+                 <option value = "15 novembre 2019">15 novembre 2019</option>
+                 <option value = "12 septembre 2019">12 septembre 2019</option>
                 </select>
-                <button class="button_sum">Confirmer</button>
+        
             </div>
-          
             <div>
              <table class="elem_center">
                 <tbody>
@@ -247,11 +298,13 @@ class SummaryPage extends Component {
                             </thead>
                             </table>
                             <div class="div_order">
-                            <button name="7" class="button_settings4" onClick={this.handleClick}>Relations/Communication</button>
+                            <button name="7" class="button_settings4" onClick={this.handleClick}>Communication</button>
+                            <br/><br/>
+                            <button name="8" class="button_summary6" onClick={this.handleClick}>Pas de categorie</button>
                             </div>
                         </div>
                         </td>
-                        
+                        {/*
                         <td>
                         <h5>Choisissez pour trier</h5>
                         <table>
@@ -270,7 +323,7 @@ class SummaryPage extends Component {
                                 </tr>
                             </thead>
                         </table>
-                        </td>
+                        </td>*/}
                     </tr>
                   </tbody>
                 </table>
@@ -287,16 +340,16 @@ class SummaryPage extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            
-                        </tr>
+                          {this.state.Summary}
+                            {/*this.summary()*/}
+                        
                     </tbody>
                 </table>
             </div>
             <br/>
             <div>
                 <h4>Commentaires</h4>
-                <textarea id="comments" rows="5" cols="40">
+                <textarea id="comments" rows="5" cols="80">
 
                 </textarea>
                 <br/>
