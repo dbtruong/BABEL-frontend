@@ -61,7 +61,8 @@ class Result extends Component{
     render(){
         return(
             <div className="container">
-                <Link to={'/'}><img src="Images/logo.png" alt="logo esope" className="imgLogo"/></Link><br/>
+                <br/><br/><br/>
+                <Link to={'/'}><img src="Images/logo.png" alt="logo esope" className="Logo"/></Link><br/>
                 <h1>Résultat du jeu</h1><br/><br/>
                 {this.state.summary}<br/>
             </div>

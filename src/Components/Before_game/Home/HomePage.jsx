@@ -17,7 +17,7 @@ class HomePage extends Component {
   render(){
     return(
       <nav className="container">
-         
+          <br/><br/><br/><br/><br/><br/>
            <Link to={'/'}><img src="Images/logo.png" alt="logo esope" className="Logo"/></Link><br/>
           <div> 
           <Link to={'/childConnexion'} className="nav-link"><button name="child" className="child_button" onClick={this.handleClick}>Enfant</button></Link>

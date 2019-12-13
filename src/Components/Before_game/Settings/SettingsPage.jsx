@@ -147,11 +147,11 @@ class SettingsPage extends Component {
     
     this.setState({
         divCategories: this.state.categories.map((categ, i) => (
-            <div><button name={categ.name} className="button_settings6" onClick={this.handleClick2}>{categ.name}</button><br/></div>
+            <div><button name={categ.name} className="category_button11" onClick={this.handleClick2}>{categ.name}</button><br/></div>
         ))
       });
       
-      console.log(this.state.divCategories); 
+      
   }
 
 
@@ -267,8 +267,7 @@ class SettingsPage extends Component {
             return; 
         }
     }
-    
-    localStorage.setItem("TabPriorCategory", this.state.categoryPriority); 
+    localStorage.setItem("TabPriorCategory", this.state.categoryPriority);
     console.log(this.state.categoryPriority); 
 }
   
@@ -277,23 +276,23 @@ class SettingsPage extends Component {
     
     return (
         <nav class="container">
-            <h4>Paramètres</h4>
+            <h1>Paramètres</h1>
             <div>
                 <br/>
-                <h5>Choisissez l'ordre des étapes que vous voulez</h5>
+                <h3>Choisissez l'ordre des étapes que vous voulez</h3>
                 <table className="table_settings">
                     <thead>
                         <tr>
-                            <td className="cel"><button name="1" onClick={this.handleClick} className="button_settings4">Aime - Aide - Content</button></td>
-                            <td className="cel"><button name="2" onClick={this.handleClick} className="button_settings4">Aime - Content - Aide</button></td>
+                            <td className="cel"><button name="1" onClick={this.handleClick} className="category_button">Aime - Aide - Content</button></td>
+                            <td className="cel"><button name="2" onClick={this.handleClick} className="category_button">Aime - Content - Aide</button></td>
                         </tr>
                         <tr>
-                            <td className="cel"><button name="3" onClick={this.handleClick} className="button_settings4">Aide - Aime - Content</button></td>
-                            <td className="cel"><button name="4" onClick={this.handleClick} className="button_settings4">Aide - Content - Aime</button></td>
+                            <td className="cel"><button name="3" onClick={this.handleClick} className="category_button">Aide - Aime - Content</button></td>
+                            <td className="cel"><button name="4" onClick={this.handleClick} className="category_button">Aide - Content - Aime</button></td>
                         </tr>
                         <tr>
-                            <td className="cel"><button name="5" onClick={this.handleClick} className="button_settings4">Content - Aide - Aime</button></td>
-                            <td className="cel"><button name="6" onClick={this.handleClick} className="button_settings4">Content - Aime - Aide</button></td>
+                            <td className="cel"><button name="5" onClick={this.handleClick} className="category_button">Content - Aide - Aime</button></td>
+                            <td className="cel"><button name="6" onClick={this.handleClick} className="category_button">Content - Aime - Aide</button></td>
                         </tr>
                     </thead>
                 </table>
@@ -301,7 +300,7 @@ class SettingsPage extends Component {
             <br/>
             
             <div>
-                <h5>Choisissez la priorité des catégories </h5>
+                <h3>Choisissez la priorité des catégories </h3>
                 <br/>
                 <div>
                     {this.state.divCategories}
@@ -318,7 +317,7 @@ class SettingsPage extends Component {
                     </thead>
                     <tbody>
                         <tr class="tr2">
-                            <td class="tr2" id="0"></td><td class="tr2" id="1"></td><td class="tr2" id="2"></td><td class="tr2" id="3"></td><td class="tr2" id="4"></td><td class="tr2" id="5"></td><td class="tr2" id="6"></td>
+                        <td class="tr2" ><h3 id="0"></h3></td><td class="tr2" ><h3 id="1"></h3></td><td class="tr2" ><h3 id="2"></h3></td><td class="tr2" ><h3 id="3"></h3></td><td class="tr2" ><h3 id="4"></h3></td><td class="tr2" ><h3 id="5"></h3></td><td class="tr2" ><h3 id="6"></h3></td>
                         </tr>
                     </tbody>
                 </table>
@@ -327,7 +326,7 @@ class SettingsPage extends Component {
                 <table class="table_settings">
                     <thead>
                         <tr>
-                           <td className="cel2"><Link to={'/commentary'}><button name="NewGame" className="button_settings2" onClick={this.handleClick3}>Valider</button></Link></td>
+                           <td className="cel2"><Link to={'/commentary'}><button name="NewGame" className="button12" onClick={this.handleClick3}>Valider</button></Link></td>
                         </tr>
                     </thead>
                 </table>

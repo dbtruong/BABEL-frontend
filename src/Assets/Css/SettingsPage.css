@@ -12,8 +12,37 @@
     border-style: groove;
     background-color: #7dbdfd;
 }
+.div_order{
+    line-height: 20px;
+}
 .tr2, .td2{
-    border: thin solid
+    border: thin solid;
+    height: 30%;
+    width: 10%;
+    
+    
+}
+.button12{
+    display:block; 
+    
+    background-color: rgb(255, 187, 0)!important;
+    border-color: #ff8800!important;
+    
+    font-size: 30px!important;
+    line-height: 50px;
+    width: 100%;
+    margin : 0 auto; 
+}
+.category_button11{
+    display:block; 
+    
+    color: rgb(5, 5, 14)!important;
+    background-color: rgb(125, 189, 253)!important;
+    border-color: #0000FF!important;
+    font-size: 30px!important;
+    line-height: 50px;
+    width: 50%;
+    margin : 0 auto; 
 }
 
 .button_settings4 {

@@ -73,7 +73,7 @@ class SummaryAPI {
                     { name : "/deplacements/voiture", like : true, help : false, happy : false,category : "deplacement"},
                     { name : "/habitation/balayer", like : true, help : true, happy : true, category :"habitation"},
                     { name : "/loisirs/ecrire", like : false, help : true, happy : false,category : "loisirs"},
-                    { name : "/loisirs/manger_mains", like : true, help : true, happy : true,category : "loisirs"},
+                    { name : "/nutrition/manger_mains", like : true, help : true, happy : true,category : "nutrition"},
                     { name : "/nutrition/boire_tasse", like : true, help : false, happy : true,category : "nutrition"},
                     { name : "/nutrition/sandwich", like : false, help : false, happy : false,category : "nutrition"}
                 ]

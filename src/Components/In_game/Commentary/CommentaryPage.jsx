@@ -8,6 +8,7 @@ class commentaryPage extends Component{
 
     constructor(){
         super();
+        console.log(localStorage.getItem("TabPriorCategory"));
         this.state = {
             id : localStorage.getItem("TabPriorCategory").split(','),
             posts : ""
@@ -54,8 +55,9 @@ class commentaryPage extends Component{
         return(
             <div>
                 {this.state.posts}
-                <Link to={'/summary'}><button className="button">Tout confirmer</button></Link>
-                <Link to={'/'}><button className="button">Quitter</button></Link>
+                <br/>
+                <Link to={'/summary'}><button className="button_mandat">Tout confirmer</button></Link>
+                <Link to={'/'}><button className="button_mandat">Quitter</button></Link>
             </div>
         );
     }

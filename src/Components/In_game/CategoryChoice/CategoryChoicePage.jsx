@@ -185,27 +185,29 @@ class CategoryChoicePage extends Component {
                 </thead>
             </table>
             <div>
-            <button name="Prior7" class="category2_button" onClick={this.handleClick}>Relations/Communication</button>
+            <button name="Prior7" class="category9_button" onClick={this.handleClick}>Relations/Communication</button>
             </div>
         </div>
         <br/>
         <div>
                 <table class="table_settings2">
                     <thead>
-                        <tr class="tr2">
+                        <tr class="td2">
                             <td class="tr2">1</td><td class="tr2">2</td><td class="tr2">3</td><td class="tr2">4</td><td class="tr2">5</td><td class="tr2">6</td><td class="tr2">7</td>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="tr2">
-                            <td class="tr2" id="0"></td><td class="tr2" id="1"></td><td class="tr2" id="2"></td><td class="tr2" id="3"></td><td class="tr2" id="4"></td><td class="tr2" id="5"></td><td class="tr2" id="6"></td>
+                        
+                        <tr class="td2">
+                        <td class="tr2" ><h3 id="0"></h3></td><td class="tr2" ><h3 id="1"></h3></td><td class="tr2" ><h3 id="2"></h3></td><td class="tr2" ><h3 id="3"></h3></td><td class="tr2" ><h3 id="4"></h3></td><td class="tr2" ><h3 id="5"></h3></td><td class="tr2" ><h3 id="6"></h3></td>
                         </tr>
+                        
                     </tbody>
                 </table>
             </div>
         
         <div>
-        <Link to={'/sortingTopics'} className="nav-link"><button name="continue" class="category3_button" onClick={this.handleClick2}>Continue</button></Link>
+        <Link to={'/sortingTopics'} className="nav-link"><button name="continue" class="button" onClick={this.handleClick2}>Continue</button></Link>
         </div>
         
         </nav>

@@ -31,9 +31,10 @@ class ChildConnexionPage extends Component {
   render() {
     return (
         <nav className="container">
+          <br/><br/><br/><br/><br/><br/>
           <Link to={'/'}><img src="Images/logo.png" alt="logo esope" className="Logo"/></Link><br/>
           <div>
-          <label>Id de l'enfant:</label><br/>
+          <label><h4>Id de l'enfant:</h4></label><br/>
                 <input 
                   type="text" 
                   placeholder="Entrez l'id de l'enfant" 

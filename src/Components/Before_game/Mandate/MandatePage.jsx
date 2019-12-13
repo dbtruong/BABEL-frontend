@@ -39,11 +39,11 @@ class MandatePage extends Component {
     return (
         <nav>
             <div class="container">
-                <h3>Mandat</h3>
+                <h1>Mandat</h1>
                 <br/>
-                <h5 class="childid">Id de l'enfant : {this.state.childId}</h5>
+                <h3 class="childid">Id de l'enfant : {this.state.childId}</h3>
                 <br/>
-                <label>Instigateur :</label><br/>
+                <label><h3>Instigateur :</h3></label><br/>
                 <input 
                     type="text"
                     name="instigator"
@@ -52,7 +52,7 @@ class MandatePage extends Component {
                     onChange={e => this.setState({instigator: e.target.value})}>
                 </input><br/>
                 <br/>
-                <label>Demande :</label><br/>
+                <label><h3>Demande :</h3></label><br/>
                 <textarea id="comments" rows="5" cols="40">
                 </textarea><br/><br/>
                 <Link to={'/waiting'} className="nav-link"><button 
@@ -62,6 +62,7 @@ class MandatePage extends Component {
                 </button></Link><br/><br/>
                 <Link to={'/commentary'}><button name="Continue" className="button_mandat" onClick={this.handleClick4}>Continuer dernière partie</button></Link>
                 <Link to={'/summary'}><button name="Summary" className="button_mandat" >Voir les résumés</button></Link>
+                <br></br>
            </div>
         </nav>
     );

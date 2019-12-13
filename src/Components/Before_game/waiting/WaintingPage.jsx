@@ -7,8 +7,9 @@ import { Link } from 'react-router-dom';
 class WaitingPage extends Component {
   render() {
     return (
-
+      
         <nav className="container2">
+          <br/><br/><br/><br/><br/><br/>
             <Link to={'/'}><img src="Images/logo.png" alt="logo esope" className="Logo"/></Link><br/>
             <Link to={'/settings'}><Button className="roundButton">En attente de l'enfant</Button></Link>
         </nav>

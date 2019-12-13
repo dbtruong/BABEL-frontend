@@ -29,6 +29,7 @@ class StartPage extends Component {
   render() {
     return (
         <nav className="container2">
+          <br/><br/><br/><br/><br/><br/>
             <Link to={'/'}><img src="Images/logo.png" alt="logo esope" className="Logo"/></Link><br/>
             <Button className="roundButton" onClick={this.handleClick}>C'est parti !!</Button>
         </nav>

@@ -23,6 +23,7 @@ class ProfChildChoicePage extends Component {
     this.listChildren();
   }
 
+  //this.imagePath+child.get("picture")
   async listChildren(){
     //console.log(children);
     let data = await this.api.getChildByProf(this.state.id);
@@ -31,15 +32,16 @@ class ProfChildChoicePage extends Component {
       posts : data.map((child) =>
         <Link to={'/mandate'}><div onClick={e => this.select(child.get("id"))} className="row justify-content-center" key={""+child.get("id")}>
           <div className="col-sm-2">
-            <img src={this.imagePath+child.get("picture")} alt="photo enfant" className="Logo"/>
+            <img src={"Images/garcon.png"} alt="photo enfant" className="Logo"/>
           </div>
           <div className="col-sm-4">
-            {child.get("id")}
-            <br/>
+          
+            
+            <h4>
             {child.get("lastName")} {child.get("firstName")}
+            </h4>
             <br/>
-            {child.get("birthday")}
-            <br/>
+            
             {child.get("handicap")}
           </div>
           <br/>
@@ -57,14 +59,16 @@ class ProfChildChoicePage extends Component {
   render() {
     return (
         <nav className="container">
+          <br/><br/><br/><br/>
           <Link to={'/'}><img src="Images/logo.png" alt="logo esope" className="Logo"/></Link><br/>
-          <h4>Entrez les informations :</h4>
+          <h3>Entrez les informations :</h3>
+          <br/>
           {this.state.posts}
           
           <br/>
           <div>
 
-              <Link to={'/newChild'}><Button className="button" class="btn btn-primary btn-lg">Introduire un nouvel enfant</Button></Link>
+              <Link to={'/newChild'}><Button className="button13" class="btn btn-primary btn-lg">Introduire un nouvel enfant</Button></Link>
             
           </div>
         </nav>

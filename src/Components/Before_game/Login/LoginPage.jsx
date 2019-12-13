@@ -17,8 +17,11 @@ class LoginPage extends Component{
         }
         if (localStorage.getItem('role') === 'parent'){
             this.state.redirection = "/summary"
+            localStorage.setItem("comment",1)
+            
         } else {
             this.state.redirection = "/profChildChoice"
+            localStorage.setItem("comment",0)
         }
         this.api = new LoginAPI();
         this.handleClick = this.handleClick.bind(this);
@@ -37,8 +40,9 @@ class LoginPage extends Component{
     render(){
         return(
             <div className="container">
-                <Link to={'/'}><img src="Images/logo.png" alt="logo esope" className="imgLogo"/></Link><br/>
-                <label>Adresse e-mail :</label><br/>
+                <br/><br/><br/><br/><br/><br/>
+                <Link to={'/'}><img src="Images/logo.png" alt="logo esope" className="imgLogo2"/></Link><br/>
+                <label><h4>Adresse e-mail :</h4></label><br/>
                 <input
                     type="text"
                     name="user"
@@ -47,7 +51,7 @@ class LoginPage extends Component{
                     onChange={e => this.setState({login : e.target.value})}>
                 </input><br/>
                 <br/>
-                <label>Mot de passe :</label><br/>
+                <label><h4>Mot de passe :</h4></label><br/>
                 <input 
                     type="password"
                     name="pwd"

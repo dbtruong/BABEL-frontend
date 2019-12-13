@@ -15,6 +15,7 @@ class SummaryPage extends Component {
             SessionDate : "",
             SessionDates : [],
             sessions : [],
+            comment : [], 
             Session : "", 
             Summary : [],
             bool : 0,
@@ -32,6 +33,7 @@ class SummaryPage extends Component {
         this.handleClick5 = this.handleClick5.bind(this); 
         this.summary = this.summary.bind(this); 
         //this.resume = this.resume.bind(this); 
+        
         
     }
     componentDidMount(){
@@ -62,6 +64,17 @@ class SummaryPage extends Component {
             }
         }
     }
+    }
+    console.log(localStorage.getItem("comment"))
+    if(localStorage.getItem("comment")==1){
+        let com = []
+        com[0]= <div><h3>Commentaires du professionnel</h3><h5>coucou</h5></div>
+        this.setState({comment: com})
+
+    }else {
+        let com = []
+        com[0]=<div></div>
+        this.setState({comment: com})
     }
     
     this.setState({Summary : sum}); 
@@ -262,9 +275,11 @@ class SummaryPage extends Component {
     render() {
     return (
         <nav class="container">
-            <h4>Résumé</h4>
+            <Link to={'/'}><img src="Images/logo.png" alt="logo esope" className="imgLogo2"/></Link><br/>
+            <h2>Résumé</h2>
+            <br/>
             <div>
-                <h5>Choisissez la date de session</h5>
+                <h3>Choisissez la date de session</h3>
                 <select onChange={this.handleChange}> 
                  {/*{this.state.sessions}
                  {this.state.Session}*/}
@@ -279,28 +294,28 @@ class SummaryPage extends Component {
                 <tbody>
                     <tr>
                         <td class="cel3">
-                        <h5>Choisissez une catégorie </h5>
+                        <h3>Choisissez une catégorie </h3>
                         <div>
                             <table class="table_order">
                             <thead>
                                 <tr>
-                                    <td class="cel"><button name="1" class="button_settings4" onClick={this.handleClick}>Déplacement</button></td>
-                                    <td class="cel"><button name="2" class="button_settings4" onClick={this.handleClick}>Habitation</button></td>
+                                    <td class="cel6"><button name="1" class="category_button" onClick={this.handleClick}>Déplacement</button></td>
+                                    <td class="cel6"><button name="2" class="category_button" onClick={this.handleClick}>Habitation</button></td>
                                 </tr>
                                 <tr>
-                                    <td class="cel"><button name="3" class="button_settings4" onClick={this.handleClick}>Loisirs</button></td>
-                                    <td class="cel"><button name="4" class="button_settings4" onClick={this.handleClick}>Nutrition</button></td>
+                                    <td class="cel6"><button name="3" class="category_button" onClick={this.handleClick}>Loisirs</button></td>
+                                    <td class="cel6"><button name="4" class="category_button" onClick={this.handleClick}>Nutrition</button></td>
                                 </tr>
                                 <tr>
-                                    <td class="cel"><button name="5" class="button_settings4" onClick={this.handleClick}>Soins</button></td>
-                                    <td class="cel"><button name="6" class="button_settings4" onClick={this.handleClick}>Responsabilité</button></td>
+                                    <td class="cel6"><button name="5" class="category_button" onClick={this.handleClick}>Soins</button></td>
+                                    <td class="cel6"><button name="6" class="category_button" onClick={this.handleClick}>Responsabilité</button></td>
                                 </tr>
                             </thead>
                             </table>
                             <div class="div_order">
-                            <button name="7" class="button_settings4" onClick={this.handleClick}>Communication</button>
+                            <button name="7" class="category_button" onClick={this.handleClick}>Communication</button>
                             <br/><br/>
-                            <button name="8" class="button_summary6" onClick={this.handleClick}>Pas de categorie</button>
+                            <button name="8" class="category_button" onClick={this.handleClick}>Pas de categorie</button>
                             </div>
                         </div>
                         </td>
@@ -347,13 +362,16 @@ class SummaryPage extends Component {
                 </table>
             </div>
             <br/>
+            <div>{this.state.comment}</div>
+            <br/>
             <div>
-                <h4>Commentaires</h4>
+                <h3>Commentaires</h3>
                 <textarea id="comments" rows="5" cols="80">
 
                 </textarea>
                 <br/>
-                <button class="button_settings5" onclick={this.handleClick5}>Commenter</button>
+                
+                <button class="button_summary10" onclick={this.handleClick5}>Commenter</button>
             </div>
             <br/>
         </nav>
